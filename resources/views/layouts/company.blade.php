@@ -68,10 +68,13 @@
           {{-- @dd($nav_bar); --}}
           @foreach ($nav_bar as $nav)
             @if ($nav['dropdown'] == 'true')
-              <li class="dropdown"><a href="#" @if(Route::currentRouteName() == $nav['url']) class="active" @endif><span>{{ $nav['name'] }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+              <li class="dropdown">
+                <a href="#" @if(Route::currentRouteName() == 'detail') class="active" @endif>
+                  <span>{{ $nav['name'] }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+                </a>
                 <ul>
                   @foreach ($nav['dropdown_list'] as $sub_menu)
-                    <li><a href="{{ route($nav['route'], $sub_menu['id']) }}" >{{ $sub_menu['name'] }}</a></li>
+                    <li><a href="{{ route($nav['route'], $sub_menu['id']) }}" >{{ $sub_menu['nama'] }}</a></li>
                   @endforeach
                 </ul>
               </li>

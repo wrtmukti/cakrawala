@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\PerumahanService;
 
 class PerumahanController extends Controller
 {
+    protected $perumahanService;
+
+    public function __construct(PerumahanService $perumahanService)
+    {
+        $this->perumahanService = $perumahanService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -80,5 +88,11 @@ class PerumahanController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function detail($id)
+    {
+        $perumahan = $this->perumahanService->detailPerumahan($id);
+        return view('perumahan/detail', compact('perumahan'));
     }
 }
