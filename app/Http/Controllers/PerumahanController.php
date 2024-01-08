@@ -2,18 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\IndexService;
 use Illuminate\Http\Request;
 
-class LandingController extends Controller
+class PerumahanController extends Controller
 {
-    protected $indexService;
-
-    public function __construct(IndexService $indexService)
-    {
-        $this->indexService = $indexService;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +13,7 @@ class LandingController extends Controller
      */
     public function index()
     {
-        $nav_bar = $this->indexService->getNavbar();
-        // dd($nav_bar);
-        return view('index', ['nav_bar' => $nav_bar]);
+        //
     }
 
     /**

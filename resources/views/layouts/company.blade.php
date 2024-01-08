@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Impact Bootstrap Template - Index</title>
+  <title>Cakrawala</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('vendor/impact/assets/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('vendor/impact/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('image/icon/logo-cakrawala.png')}}" rel="icon">
+  <link href="{{asset('image/icon/logo-cakrawala.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,31 +65,21 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          {{-- @dd($nav_bar); --}}
+          @foreach ($nav_bar as $nav)
+            @if ($nav['dropdown'] == 'true')
+              <li class="dropdown"><a href="#" @if(Route::currentRouteName() == $nav['url']) class="active" @endif><span>{{ $nav['name'] }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  @foreach ($nav['dropdown_list'] as $sub_menu)
+                    <li><a href="{{ route($nav['route'], $sub_menu['id']) }}" >{{ $sub_menu['name'] }}</a></li>
+                  @endforeach
                 </ul>
               </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+            @else
+              <li><a href="{{ route($nav['url']) }}" @if(Route::currentRouteName() == $nav['url']) class="active" @endif>{{ $nav['name'] }}</a></li>
+            @endif
+          @endforeach
+
       </nav><!-- .navbar -->
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -98,8 +88,6 @@
     </div>
   </header><!-- End Header -->
   <!-- End Header -->
-
-
   {{-- CONTENT --}}
     @yield('content')
   {{-- END CONTENT --}}
@@ -111,7 +99,7 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Impact</span>
+            <span>Cakrawala</span>
           </a>
           <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
           <div class="social-links d-flex mt-4">
