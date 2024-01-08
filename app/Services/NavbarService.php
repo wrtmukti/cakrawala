@@ -1,12 +1,19 @@
 <?php
 
 namespace App\Services;
+use App\Services\PerumahanService;
 
-class IndexService
+class NavbarService
 {
+    public function __construct(PerumahanService $perumahanService)
+    {
+        $this->perumahanService = $perumahanService;
+    }
+
     // Get Navbar
     public function getNavbar()
     {
+        $dropdown_list = $this->perumahanService->datasetPerumahan();
         $nav_bar = [
             [
                 'name' => 'Home',
@@ -23,21 +30,7 @@ class IndexService
                 'url' => 'perumahan',
                 'route' => 'detail', // route name for dropdown
                 'dropdown' => 'true',
-                'dropdown_list' =>
-                [
-                    [
-                        'name' => 'Perumahan 1',
-                        'id' => 'perumahan1',
-                    ],
-                    [
-                        'name' => 'Perumahan 2',
-                        'id' => 'perumahan2',
-                    ],
-                    [
-                        'name' => 'Perumahan 3',
-                        'id' => 'perumahan3',
-                    ],
-                ],
+                'dropdown_list' => $dropdown_list,
             ],
             [
                 'name' => 'Testimoni',
