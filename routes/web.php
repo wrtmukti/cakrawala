@@ -19,15 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\LandingController::class, 'index'])->name('/');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/test', [App\Http\Controllers\HomeController::class, 'test']);
-
-
-// MENU
-Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
-Route::get('/perumahan', [App\Http\Controllers\PerumahanController::class, 'index'])->name('perumahan');
-Route::get('/perumahan/detail/{id}', [App\Http\Controllers\PerumahanController::class, 'detail'])->name('detail');
-Route::get('/testimoni', [App\Http\Controllers\TestimoniController::class, 'index'])->name('testimoni');
-Route::get('/kontak', [App\Http\Controllers\KontakController::class, 'index'])->name('kontak');
+Route::get('/', [App\Http\Controllers\ProfileController::class, 'index'])->name('/');
+Route::get('/about', [App\Http\Controllers\ProfileController::class, 'about'])->name('about');
+Route::get('/award', [App\Http\Controllers\ProfileController::class, 'award'])->name('award');
+Route::get('/contact', [App\Http\Controllers\ProfileController::class, 'contact'])->name('contact');
+Route::get('/project', [App\Http\Controllers\ProjectController::class, 'index'])->name('[project]');
+Route::get('/project/detail/{id}', [App\Http\Controllers\ProjectController::class, 'detail'])->name('detail');
+Route::get('/collaboration', [App\Http\Controllers\ProfileController::class, 'collaboration'])->name('collaboration');
