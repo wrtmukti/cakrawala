@@ -28,11 +28,11 @@ class ProjectService
                 'location' => 'Lokasi 1',
                 'description' => 'Deskripsi 1',
                 'image' => 'gambar1.jpg',
-                'tipe' => '',
-                'harga' => '',
-                'catatan' => '',
+                'type' => '',
+                'price' => '',
+                'note' => '',
                 'location' => '',
-                'fasilitas' => [
+                'facility' => [
                     [
                         'name' => 'Fasilitas 1',
                         'distance' => '1 km',
