@@ -13,7 +13,7 @@ class ProjectService
         $filtered = array_filter($project, function ($item) use ($id) {
             return $item['id'] === $id;
         });
-        
+
         // Mengembalikan hasil filter, atau array kosong jika tidak ditemukan
         return $filtered ? array_values($filtered)[0] : [];
     }
@@ -21,50 +21,197 @@ class ProjectService
     // Dataset Project
     public function datasetProject()
     {
+        $specification = array(
+            [
+                'name' => 'Batu Beton',
+                'icon' => 'fa fa-industry',
+                // 'icon' => 'fa fa-shapes',
+            ],
+            [
+                'name' => 'Beton Bertulang',
+                'icon' => 'fa fa-table',
+            ],
+            [
+                'name' => 'Bata Merah',
+                'icon' => 'fa fa-cubes',
+            ],
+            [
+                'name' => 'Kayu Jati',
+                'icon' => 'fa fa-tree',
+            ],
+            [
+                'name' => 'Baja Ringan',
+                'icon' => 'fa fa-crop',
+            ],
+            [
+                'name' => 'Multiprof Berpasir',
+                'icon' => 'fa fa-dna',
+            ],
+            [
+                'name' => 'Keramik 40x40',
+                'icon' => 'fa fa-layer-group',
+            ],
+            [
+                'name' => 'Air PDAM',
+                'icon' => 'fa fa-water',
+            ],
+            [
+                'name' => 'Listrik 1.300 WAT',
+                'icon' => 'fa fa-plug',
+            ],
+            [
+                'name' => 'Kerangka Hollow',
+                'icon' => 'fa fa-border-none',
+            ],
+            [
+                'name' => 'Gypsum',
+                'icon' => 'fa fa-shapes',
+            ],
+        );
+
         $project = array(
             [
-                'id' => 'project1',
-                'name' => 'Project 1',
-                'location' => 'Lokasi 1',
-                'description' => 'Deskripsi 1',
-                'image' => 'gambar1.jpg',
+                'id' => 'cakrawalautamaresidence1',
+                'name' => 'Cakrawala Utama Residence 1',
+                'image' => [],
+                'type' => '30/60',
+                'price' => '900',
+                'note' => 'Free Kitchen Set Atas',
+                'location' => 'Mandan, Sukoharjo, Jawa Tengah',
+                'facility' => [
+                    [
+                        'name' => 'Kamar Tidur',
+                        'icon' => 'fa fa-bed',
+                        'qty' =>  '2',
+                    ],
+                    [
+                        'name' => 'Kamar Mandi',
+                        'icon' => 'fa fa-bath',
+                        'qty' =>  '1',
+                    ],
+                    [
+                        'name' => 'Dapur',
+                        'icon' => 'fa fa-utensils',
+                        'qty' =>  '1',
+                    ],
+                    [
+                        'name' => 'Carport',
+                        'icon' => 'fa fa-car',
+                        'qty' =>  '',
+                    ],
+                    [
+                        'name' => 'Taman Minimalis',
+                        'icon' => 'fa fa-leaf',
+                        'qty' =>  '',
+                    ],
+                ],
+                'specification' => $specification,
+            ],
+            [
+                'id' => 'cakrawalautamaresidence2',
+                'name' => 'Cakrawala Utama Residence 2',
+                'image' => [],
                 'type' => '',
                 'price' => '',
                 'note' => '',
                 'location' => '',
                 'facility' => [
                     [
-                        'name' => 'Fasilitas 1',
-                        'distance' => '1 km',
-                        'icon' => 'fas fa-school',
-                    ],
-                    [
-                        'name' => 'Fasilitas 1',
-                        'distance' => '2 km',
-                        'icon' => 'fas fa-school',
-                    ],
-                    [
-                        'name' => 'Fasilitas 1',
-                        'distance' => '3 km',
-                        'icon' => 'fas fa-school',
-                    ],
+                        'name' => '',
+                        'icon' => '',
+                        'qty' => '',
+                    ]
                 ],
+                'specification' => $specification,
             ],
             [
-                'id' => 'project2',
-                'name' => 'Project 2',
-                'location' => 'Lokasi 2',
-                'description' => 'Deskripsi 2',
-                'image' => 'gambar2.jpg',
+                'id' => 'cakrawalautamaresidence3',
+                'name' => 'Cakrawala Utama Residence 3',
+                'image' => [],
+                'type' => '',
+                'price' => '',
+                'note' => '',
+                'location' => '',
+                'facility' => [
+                    [
+                        'name' => '',
+                        'icon' => '',
+                        'qty' => '',
+                    ]
+                ],
+                'specification' => $specification,
             ],
             [
-                'id' => 'project3',
-                'name' => 'Project 3',
-                'location' => 'Lokasi 3',
-                'description' => 'Deskripsi 3',
-                'image' => 'gambar3.jpg',
+                'id' => 'cakrawalautamaresidence4',
+                'name' => 'Cakrawala Utama Residence 4',
+                'image' => [],
+                'type' => '',
+                'price' => '',
+                'note' => '',
+                'location' => '',
+                'facility' => [
+                    [
+                        'name' => '',
+                        'icon' => '',
+                        'qty' => '',
+                    ]
+                ],
+                'specification' => $specification,
+            ],
+            [
+                'id' => 'cakrawalautamaresidence5',
+                'name' => 'Cakrawala Utama Residence 5',
+                'image' => [],
+                'type' => '',
+                'price' => '',
+                'note' => '',
+                'location' => '',
+                'facility' => [
+                    [
+                        'name' => '',
+                        'icon' => '',
+                        'qty' => '',
+                    ]
+                ],
+                'specification' => $specification,
+            ],
+            [
+                'id' => 'cakrawalautamaresidence6',
+                'name' => 'Cakrawala Utama Residence 6',
+                'image' => [],
+                'type' => '',
+                'price' => '',
+                'note' => '',
+                'location' => '',
+                'facility' => [
+                    [
+                        'name' => '',
+                        'icon' => '',
+                        'qty' => '',
+                    ]
+                ],
+                'specification' => $specification,
+            ],
+            [
+                'id' => 'cakrawalautamaresidence7',
+                'name' => 'Cakrawala Utama Residence 7',
+                'image' => [],
+                'type' => '',
+                'price' => '',
+                'note' => '',
+                'location' => '',
+                'facility' => [
+                    [
+                        'name' => '',
+                        'icon' => '',
+                        'qty' => '',
+                    ]
+                ],
+                'specification' => $specification,
             ],
         );
+
+        
 
         return $project;
     }

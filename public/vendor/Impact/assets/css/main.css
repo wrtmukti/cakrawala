@@ -813,7 +813,7 @@ section {
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action .container {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/image/img/hero_project/hero_project.png") center center;
   background-size: cover;
   padding: 100px 60px;
   border-radius: 15px;
@@ -950,9 +950,24 @@ section {
   margin-bottom: 50px;
 }
 
+.services .service-item .iconsm {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-bottom: 50px;
+}
+
 .services .service-item .icon i {
   color: var(--color-default);
   font-size: 56px;
+  transition: ease-in-out 0.3s;
+  z-index: 2;
+  position: relative;
+}
+
+.services .service-item .iconsm i {
+  color: var(--color-default);
+  font-size: 34px;
   transition: ease-in-out 0.3s;
   z-index: 2;
   position: relative;
