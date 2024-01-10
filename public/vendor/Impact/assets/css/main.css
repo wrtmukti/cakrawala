@@ -819,6 +819,85 @@ section {
   font-size: 14px;
 }
 
+/* Image Project */
+.image-project {
+  width: 68%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Btn Download */
+.mybutton {
+  border-radius: 20px; /* Mengatur tingkat lengkungan (bentuk rounded) */
+  padding: 10px 20px; /* Atur padding (jarak antara teks dan batas tombol) */
+  background-color: #007bff; /* Warna latar belakang tombol */
+  color: white; /* Warna teks pada tombol */
+  border: none; /* Menghapus garis tepi tombol */
+  cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
+  margin-right: 10px; /* Jarak antara tombol */
+}
+.mybutton:last-child {
+  margin-right: 0; /* Menghapus margin kanan pada tombol terakhir */
+}
+
+.btn-block-custom1 {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  background-color: #C82121;
+  border: 1px solid transparent;
+  color: #fff;
+  border-radius: 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-block-custom2 {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  background-color: green;
+  border: 1px solid transparent;
+  color: #fff;
+  border-radius: 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (max-width: 1000px) {
+  .btn-block-custom1 {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .btn-block-custom2 {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-block-custom1 {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .btn-block-custom2 {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
@@ -1735,6 +1814,10 @@ section {
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+.contact-custom {
+  background-color: #f6f6f6;
+}
+
 .contact .info-container {
   background-color: var(--color-primary);
   height: 100%;
