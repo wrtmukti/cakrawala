@@ -20,8 +20,10 @@
 /* Colors */
 :root {
   --color-default: #222222;
-  --color-primary: #008374;
-  --color-secondary: #f85a40;
+  --color-primary: #0D0CB5;
+  /* --color-primary: #008374; */
+  --color-secondary: #C82121;
+  /* --color-secondary: #f85a40; */
 }
 
 /* Smooth scroll behavior */
@@ -43,7 +45,8 @@ a {
 }
 
 a:hover {
-  color: #00b6a1;
+  color: #0D0CB5;
+  /* color: #00b6a1; */
   text-decoration: none;
 }
 
@@ -180,7 +183,8 @@ section {
 }
 
 .scroll-top:hover {
-  background: rgba(248, 90, 64, 0.8);
+  background: red;
+  /* background: rgba(248, 90, 64, 0.8); */
   color: #fff;
 }
 
@@ -238,7 +242,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .topbar {
-  background: #00796b;
+  background: #C82121;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -428,7 +432,8 @@ section {
     font-size: 15px;
     text-transform: none;
     font-weight: 600;
-    color: #006a5d;
+    color: #0D0CB5;
+    /* color: #006a5d; */
   }
 
   .navbar .dropdown ul a i {
@@ -499,7 +504,8 @@ section {
     inset: 0;
     padding: 50px 0 10px 0;
     margin: 0;
-    background: rgba(0, 131, 116, 0.9);
+    background: #0D0CB5;
+    /* background: rgba(0, 131, 116, 0.9); */
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -545,7 +551,8 @@ section {
   .navbar .getstarted:hover,
   .navbar .getstarted:focus:hover {
     color: #fff;
-    background: rgba(0, 131, 116, 0.8);
+    background: #0D0CB5;
+    /* background: rgba(0, 131, 116, 0.8); */
   }
 
   .navbar .dropdown ul,
@@ -555,8 +562,10 @@ section {
     padding: 10px 0;
     margin: 10px 20px;
     transition: all 0.5s ease-in-out;
-    background-color: #007466;
-    border: 1px solid #006459;
+    background-color: #0D0CB5;
+    border: 1px solid #0a0a83;
+    /* background-color: #007466;
+    border: 1px solid #006459; */
   }
 
   .navbar .dropdown>.dropdown-active,
@@ -598,6 +607,7 @@ section {
     content: "";
     position: fixed;
     inset: 0;
+    background: #0D0CB5;
     background: rgba(0, 106, 93, 0.8);
     z-index: 9996;
   }
@@ -1978,7 +1988,7 @@ section {
   padding: 60px 30px;
   position: relative;
   overflow: hidden;
-  background: #008d7d;
+  background: #DEE1EC;
   box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
@@ -1995,7 +2005,7 @@ section {
 }
 
 .hero .icon-box .title a {
-  color: #fff;
+  color: #C82121;
   transition: 0.3s;
 }
 
@@ -2006,16 +2016,16 @@ section {
   transition: all 0.3s ease-in-out;
   font-size: 48px;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.6);
+  color: #C82121;
 }
 
 .hero .icon-box:hover {
-  background: #009786;
+  background: #C82121;
 }
 
 .hero .icon-box:hover .title a,
 .hero .icon-box:hover .icon {
-  color: #fff;
+  color: #DEE1EC;
 }
 
 /*--------------------------------------------------------------
