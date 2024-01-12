@@ -3,4 +3,6 @@
 
 {{-- CONTENT --}}
 
+{{-- Contact Me --}}
+@include('profile/contact_me')
 @endsection

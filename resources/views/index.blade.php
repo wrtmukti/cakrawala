@@ -941,5 +941,8 @@
       </div>
     </section><!-- End Contact Section -->
 
+    {{-- Contact Me --}}
+    @include('profile/contact_me')
+
   </main><!-- End #main -->
 @endsection
