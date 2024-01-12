@@ -22,7 +22,7 @@
             <div class="row mt-5 mb-5">
                 <div class="col">
                     <a href="{{ $about['maps_url'] }}" class="btn btn-primary btn-lg btn-block-custom1"><i
-                            class="fa fa-compass"></i> Ke Lokasi Sekarang</a>
+                            class="bi bi-geo-alt"></i> Ke Lokasi Sekarang</a>
                 </div>
             </div>
         </div>

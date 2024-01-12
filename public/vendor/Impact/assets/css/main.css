@@ -2152,6 +2152,52 @@ section {
   color: #DEE1EC;
 }
 
+.icon-box2 {
+  padding: 60px 30px;
+  position: relative;
+  overflow: hidden;
+  background: #DEE1EC;
+  box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.icon-box2 .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.icon-box2 .title a {
+  color: #C82121;
+  transition: 0.3s;
+}
+
+.icon-box2 .icon {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  font-size: 48px;
+  line-height: 1;
+  color: #C82121;
+}
+
+.icon-box2:hover {
+  background: #C82121;
+}
+
+.icon-box2:hover .title a,
+.icon-box2:hover .icon {
+  color: #DEE1EC;
+}
+
+
+
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/

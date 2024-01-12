@@ -155,7 +155,8 @@
         </div>
 
       </div>
-    </section><!-- End Stats Counter Section -->
+    </section>
+    <!-- End Stats Counter Section -->
 
     <!-- ======= Call To Action Section ======= -->
     <section id="call-to-action" class="call-to-action">
