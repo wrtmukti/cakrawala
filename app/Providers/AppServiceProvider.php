@@ -36,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         // Contact Me
         $contactService = app(ProfileService::class);
         $contact_me = $contactService->contactMe();
+        // dd($contact_me);
         View::share('contact', $contact_me);
     }
 }

@@ -15,9 +15,6 @@ class ProfileController extends Controller
         $this->profileService = $profileService;
     }
 
-
-
-
     public function index()
     {
         return view('index');
@@ -25,20 +22,20 @@ class ProfileController extends Controller
 
     public function about()
     {
-        return view('profile.about');
+        $about = $this->profileService->about();
+        return view('profile.about', compact('about'));
     }
 
     public function award()
     {
-        // Data award
         $award = $this->profileService->award();
-        // dd($data);
         return view('profile.award', compact('award'));
     }
 
     public function collaboration()
     {
-        return view('profile.collaboration');
+        $collaboration = $this->profileService->collaboration();
+        return view('profile.collaboration', compact('collaboration'));
     }
 
 

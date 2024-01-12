@@ -25,6 +25,6 @@
 @endforeach
 
 {{-- Contact Me --}}
-@include('profile/contact_me')
+@include('layouts/contact_me')
 
 @endsection
