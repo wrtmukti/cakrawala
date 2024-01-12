@@ -177,10 +177,10 @@
                 </div>
 
             </div>
-        </section><!-- End About Us Section -->
+        </section>
 
         {{-- Contact Me --}}
-        @include('profile/contact_me')
+        @include('layouts/contact_me')
 
     </main><!-- End #main -->
 @endsection

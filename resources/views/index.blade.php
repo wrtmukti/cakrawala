@@ -942,7 +942,7 @@
     </section><!-- End Contact Section -->
 
     {{-- Contact Me --}}
-    @include('profile/contact_me')
+    @include('layouts/contact_me')
 
   </main><!-- End #main -->
 @endsection
