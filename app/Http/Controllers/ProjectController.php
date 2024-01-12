@@ -59,6 +59,7 @@ class ProjectController extends Controller
     public function detail($id)
     {
         $project = $this->projectService->detailProject($id);
-        return view('profile.projects.detail', compact('project'));
+        $contact = $this->projectService->contactMe($id);
+        return view('profile.projects.detail', compact('project', 'contact'));
     }
 }
