@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Services\NavbarService;
 use App\Services\ProfileService;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\URL;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -38,5 +39,10 @@ class AppServiceProvider extends ServiceProvider
         $contact_me = $contactService->contactMe();
         // dd($contact_me);
         View::share('contact', $contact_me);
+
+        // CONFIG FOR CSS NGROK
+        // if(config('app.env') === 'local') {
+        //     URL::forceScheme('https');
+        // }
     }
 }

@@ -20,11 +20,12 @@ class ProfileService
         $description = "Selamat datang di halaman kontak kami, tempat untuk bertanya, berbagi, dan berkolaborasi. Kami siap menerima pesan Anda dan memberikan respon secepat mungkin!";
         $name = "Cakrawala";
         $whatsapp = "62813493769098";
-        $telephone = "";
-        $email = "";
+        $telephone = "62813493769098";
+        $email = "cakrawalapratamamanunggalresmi@gmail.com";
         $instagram = "";
         $facebook = "";
         $twitter = "";
+        $youtube = "";
         $ad = '';
         $brochures = '';
         $contact_me = '';
@@ -60,6 +61,7 @@ class ProfileService
             'instagram' => $instagram,
             'facebook' => $facebook,
             'twitter' => $twitter,
+            'youtube' => $youtube,
         );
     }
 
