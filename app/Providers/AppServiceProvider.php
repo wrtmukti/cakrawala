@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Services\NavbarService;
+use App\Services\ProfileService;
 use Illuminate\Support\Facades\View;
 
 
@@ -31,5 +32,10 @@ class AppServiceProvider extends ServiceProvider
         $navbarService = app(NavbarService::class);
         $nav_bar = $navbarService->getNavbar();
         View::share('nav_bar', $nav_bar);
+
+        // Contact Me
+        $contactService = app(ProfileService::class);
+        $contact_me = $contactService->contactMe();
+        View::share('contact', $contact_me);
     }
 }

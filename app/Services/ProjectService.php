@@ -369,29 +369,5 @@ class ProjectService
         return $project;
     }
 
-    // Contact me
-    public function contactMe($id)
-    {
-        $name = "Cakrawala";
-        $whatsapp = "62813493769098";
-        $projectName = $this->detailProject($id);
-        $ad = "Hallo " . $name . ", Saya tertarik dengan penawaran yang anda berikan di dalam website, pada rumah " . $projectName['name'] . " dengan type " . $projectName['type'];
-        $brochures = "Hallo " . $name . ", penawaran yang anda berikan di dalam website merupakan penawaran yang menarik, dapatkah saya mendapatkan brosur dari rumah " . $projectName['name'] . " dengan type " . $projectName['type'];
-        $contact_me = "Hallo " . $name . ", saya tertarik dengan penawaran yang anda berikan di dalam website, pada rumah " . $projectName['name'] . " dengan type " . $projectName['type'] . ". Dapatkah saya mengobrol dengan anda melalui pesan ini ?";
-        // --
-        $ad = str_replace(' ', '%20', $ad);
-        $brochures = str_replace(' ', '%20', $brochures);
-        $contact_me = str_replace(' ', '%20', $contact_me);
-        // --
-        $link = 'https://api.whatsapp.com/send?phone=' . $whatsapp . '&text=';
-        // --
-
-
-
-        return array(
-            'ad' => $link . $ad,
-            'brochures' => $link . $brochures,
-            'contact_me' => $link . $contact_me,
-        );
-    }
+    
 }
