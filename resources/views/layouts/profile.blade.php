@@ -13,6 +13,8 @@
   <link href="{{asset('image/icon/logo-cakrawala.png')}}" rel="icon">
   <link href="{{asset('image/icon/logo-cakrawala.png')}}" rel="apple-touch-icon">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,21 +46,21 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <section id="topbar" class="topbar d-flex align-items-center">
+  {{-- <!-- ======= Header ======= -->
+  <section id="topbar" class="topbar d-flex align-items-center " >
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        <i class="bi bi-envelope d-flex align-items-center" ><a href="mailto:contact@example.com" >contact@example.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span >+1 5589 55488 55</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="#" class="twitter" ><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook" ><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram" ><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin" ><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
-  </section><!-- End Top Bar -->
+  </section><!-- End Top Bar --> --}}
 
   <header id="header" class="header d-flex align-items-center">
 
@@ -107,9 +109,8 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Cakrawala</span>
-          </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+            <span style="font-size: 25px">PT. Cakrawala Patrama Manunggal</span></a>
+            <p>Adalah perusahaan yang bergerak dibidang kontraktor & developer. <br> Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang <br>hingga saat ini.</p>
           <div class="social-links d-flex mt-4">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -118,17 +119,17 @@
           </div>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
+        <div class="col-lg-3 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Pelayanan</a></li>
             <li><a href="#">Terms of service</a></li>
             <li><a href="#">Privacy policy</a></li>
           </ul>
         </div>
-
+{{-- 
         <div class="col-lg-2 col-6 footer-links">
           <h4>Our Services</h4>
           <ul>
@@ -138,16 +139,16 @@
             <li><a href="#">Marketing</a></li>
             <li><a href="#">Graphic Design</a></li>
           </ul>
-        </div>
+        </div> --}}
 
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
+        <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
+          <h4>Hubungi kami</h4>
           <p>
             A108 Adam Street <br>
             New York, NY 535022<br>
             United States <br><br>
             <strong>Phone:</strong> +1 5589 55488 55<br>
-            <strong>Email:</strong> info@example.com<br>
+            <strong>Email:</strong> cakrawalapratamamanunggalresmi@gmail.com<br>
           </p>
 
         </div>
@@ -157,14 +158,14 @@
 
     <div class="container mt-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>PT. Cakrawala Pratama Manunggal</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
       </div>
     </div>
 
