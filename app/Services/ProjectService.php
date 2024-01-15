@@ -78,7 +78,7 @@ class ProjectService
                 'image_transparent' => 'bg_transparent/cru.png',
                 'image_type' => 'type/cru1.jpg',
                 'type' => '30/60',
-                'price' => '900',
+                'price' => '900 ribu',
                 'note' => 'Free Kitchen Set Atas',
                 'location' => 'Mandan, Sukoharjo, Jawa Tengah',
                 'facility' => [
@@ -120,7 +120,7 @@ class ProjectService
                 'image_transparent' => 'bg_transparent/cru.png',
                 'image_type' => 'type/cru2.jpg',
                 'type' => '30/60',
-                'price' => '900',
+                'price' => '900 ribu',
                 'note' => 'Free Kitchen Set Atas',
                 'location' => 'Mandan, Sukoharjo, Jawa Tengah',
                 'facility' => [
@@ -366,8 +366,8 @@ class ProjectService
             ],
         );
 
-
-
         return $project;
     }
+
+    
 }

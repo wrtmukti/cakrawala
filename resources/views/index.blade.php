@@ -681,7 +681,12 @@
         </div>
 
       </div>
+<<<<<<< HEAD
     </section><!-- End Stats Counter Section --> --}}
+=======
+    </section>
+    <!-- End Stats Counter Section -->
+>>>>>>> 83d4431367ff9aafeaba81d33af0c351c57a4da5
 
    
     {{-- <!-- ======= Our Services Section ======= -->
@@ -967,6 +972,9 @@
       </div>
     </section><!-- End Pricing Section --> --}}
 
+
+    {{-- Contact Me --}}
+    @include('layouts/contact_me')
 
   </main><!-- End #main -->
 @endsection

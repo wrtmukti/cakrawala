@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ProjectService;
+use App\Services\ProfileService;
 
 class ProjectController extends Controller
 {
     protected $projectService;
+    protected $profileService;
 
-    public function __construct(ProjectService $projectService)
+    public function __construct(ProjectService $projectService, ProfileService $profileService)
     {
         $this->projectService = $projectService;
+        $this->profileService = $profileService;
     }
 
     
@@ -59,6 +62,7 @@ class ProjectController extends Controller
     public function detail($id)
     {
         $project = $this->projectService->detailProject($id);
-        return view('profile.projects.detail', compact('project'));
+        $contact = $this->profileService->contactMe($id);
+        return view('profile.projects.detail', compact('project', 'contact'));
     }
 }

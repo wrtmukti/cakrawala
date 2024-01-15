@@ -876,6 +876,24 @@ section {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.btn-block-custom3 {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid transparent;
+  color: var(--color-secondary);
+  font-weight: bold;
+  border-radius: 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 @media (max-width: 1000px) {
   .btn-block-custom1 {
     padding: 0.5rem 1rem;
@@ -886,6 +904,12 @@ section {
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
   }
+
+  .btn-block-custom3 {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -896,6 +920,15 @@ section {
   
   .btn-block-custom2 {
     padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .btn-block-custom3 {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .contact-custom2 .h1{
     font-size: 1rem;
   }
 }
@@ -1817,7 +1850,15 @@ section {
 # Contact Section
 --------------------------------------------------------------*/
 .contact-custom {
-  background-color: #f6f6f6;
+  background: url("/image/img/contact_me/grey_background.jpg") center center;
+  background-size: cover;
+}
+
+.contact-custom2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/image/img/hero_project/hero_project.png") center center;
+  background-size: cover;
+  color: #fff;
+  font-weight: bold;
 }
 
 .contact .info-container {
@@ -2113,6 +2154,52 @@ section {
 .hero .icon-box:hover .icon {
   color: #DEE1EC;
 }
+
+.icon-box2 {
+  padding: 60px 30px;
+  position: relative;
+  overflow: hidden;
+  background: #DEE1EC;
+  box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.icon-box2 .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.icon-box2 .title a {
+  color: #C82121;
+  transition: 0.3s;
+}
+
+.icon-box2 .icon {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  font-size: 48px;
+  line-height: 1;
+  color: #C82121;
+}
+
+.icon-box2:hover {
+  background: #C82121;
+}
+
+.icon-box2:hover .title a,
+.icon-box2:hover .icon {
+  color: #DEE1EC;
+}
+
+
 
 /*--------------------------------------------------------------
 # Blog
