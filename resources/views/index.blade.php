@@ -69,7 +69,7 @@
 
         <div class="section-header">
           <h2>Tentang Kami</h2>
-          <p>PT. CAKRAWALA PRATAMA MANUNGGAL Adalah perusahaan yang bergerak dibidang kontraktor & developer.</p>
+          <p>PT. CAKRAWALA PRATAMA MANUNGGAL adalah perusahaan yang bergerak dibidang kontraktor & developer.</p>
         </div>
 
         <div class="row gy-4">
@@ -681,12 +681,7 @@
         </div>
 
       </div>
-<<<<<<< HEAD
     </section><!-- End Stats Counter Section --> --}}
-=======
-    </section>
-    <!-- End Stats Counter Section -->
->>>>>>> 83d4431367ff9aafeaba81d33af0c351c57a4da5
 
    
     {{-- <!-- ======= Our Services Section ======= -->

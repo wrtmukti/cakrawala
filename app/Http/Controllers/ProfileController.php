@@ -3,29 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use App\Services\ProjectService;
+use App\Services\ProfileService;
 
 
 class ProfileController extends Controller
 {
     protected $projectService;
-
-    public function __construct(ProjectService $projectService)
-    {
-        $this->projectService = $projectService;
-=======
-use App\Services\ProfileService;
-
-class ProfileController extends Controller
-{
-    protected $indexService;
     protected $profileService;
 
-    public function __construct(ProfileService $profileService)
+    public function __construct(ProjectService $projectService, ProfileService $profileService)
     {
+        $this->projectService = $projectService;
         $this->profileService = $profileService;
->>>>>>> 83d4431367ff9aafeaba81d33af0c351c57a4da5
     }
 
     public function index()
