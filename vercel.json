@@ -17,7 +17,7 @@
     ],
     "functions": {
       "api/*": {
-        "runtime": "@vercel/php@0.12.0"
+        "runtime": "@vercel/php@0.10.0"
       }
     }
   }
