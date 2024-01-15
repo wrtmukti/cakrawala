@@ -62,6 +62,9 @@ class ProfileService
             'facebook' => $facebook,
             'twitter' => $twitter,
             'youtube' => $youtube,
+            'alamat' => $this->about()['address'],
+            'description' => $this->about()['main_description'],
+            'company_name' => $this->about()['company_name'],
         );
     }
 
@@ -159,6 +162,8 @@ class ProfileService
     {
         $data = array(
             'title' => 'TENTANG KAMI',
+            'company_name' => 'PT. Cakrawala Pratama Manunggal',
+            'main_description' => 'Adalah perusahaan yang bergerak dibidang kontraktor & developer. Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
             'description' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak di bidang properti. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat Indonesia dengan menyediakan hunian yang layak dan berkualitas.',
             'address' => 'Jl. Raya Solo - Purwodadi KM 12,5, Kec. Mojolaban, Kab. Sukoharjo, Jawa Tengah',
             'maps_url' => 'https://maps.app.goo.gl/kn9XTGxFvDzYe2DUA',

@@ -109,8 +109,10 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span style="font-size: 25px">PT. Cakrawala Patrama Manunggal</span></a>
-            <p>Adalah perusahaan yang bergerak dibidang kontraktor & developer. <br> Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang <br>hingga saat ini.</p>
+            <span style="font-size: 25px">{{ $contact['company_name'] }}</span></a>
+          <div class="col-lg-9">
+            <p>{{ $contact['description'] }}</p>
+          </div>
           <div class="social-links d-flex mt-4">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -120,13 +122,11 @@
         </div>
 
         <div class="col-lg-3 col-6 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Menu yang tersedia</h4>
           <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Tentang Kami</a></li>
-            <li><a href="#">Pelayanan</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            @foreach ($nav_bar as $menu )
+              <li><a href="{{ $menu['url'] }}">{{ $menu['name'] }}</a></li>          
+            @endforeach
           </ul>
         </div>
 {{-- 
@@ -144,11 +144,11 @@
         <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
           <h4>Hubungi kami</h4>
           <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
-            <strong>Email:</strong> cakrawalapratamamanunggalresmi@gmail.com<br>
+            
+            {{ $contact['alamat']  }}
+            <br>&nbsp;<br>
+            <strong>Ponsel:</strong> + {{ $contact['no_telephone'] }}<br>
+            <strong>Email:</strong> {{ $contact['email'] }}<br>
           </p>
 
         </div>
