@@ -1,7 +1,7 @@
 @extends('layouts.profile')
 @section('content')
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero" ">
+  <section id="hero" class="hero" >
     <div class="container position-relative">
       <div class="row gy-5" data-aos="fade-in">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
@@ -68,224 +68,83 @@
       <div class="container " data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Tentang Kami</h2>
-          <p>PT. CAKRAWALA PRATAMA MANUNGGAL adalah perusahaan yang bergerak dibidang kontraktor & developer.</p>
+          <h2>{{ $about['title'] }}</h2>
+          <p>{{ $about['sub_title'] }}</p>
         </div>
 
         <div class="row gy-4">
           <div class="col-lg-6">
-            <h4>PT. CAKRAWALA PRATAMA MANUNNGAL</h4>
-            <P>Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini. </P>
-            <img src="{{asset('image/img/home/about.png')}}" class="img-fluid rounded-4 mb-5" alt="" width="100%">
-            <p>PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak dibidang kontraktor & developer yang berdiri sejak tahun 2022. Perumahan Cakrawala Utama Residence 1 merupakan project pertama kami dan terus berkembang, hingga saat ini kami sudah mengembangkan lebih dari 500 unit rumah per tahun.</p>  
+            <h4><b>{{ strtoupper($about['company_name']) }}</b></h4>
+            <p>{{ $about['since'] }}</p>
+            <img src="{{asset('image/img/home/'.$about['image'])}}" class="img-fluid rounded-4 mb-5" alt="" width="100%">
+            <p>{{ $about['description2'] }}</p>  
           </div>
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
-              {{-- <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-              </ul>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-              </p> --}}
-              <p>Dengan mengusung konsep perumahan bersubsidi yang berkualitas prima dalam bangunan rumah,lingkungan hunian yang tertata,aman,nyaman,asri dan  hijau, bernuansa feel like warm homey sehingga dapat meningkatkan kualitas hidup penghuninya. Dengan dukungan dari pihak perbankan dan instansi terkait, mempertegas komitmen kami untuk terus berkembang dan memberikan hunian terbaik untuk anda.
-              </p>
+              <p>{{ $about['description3'] }}</p>
               <div class="position-relative mt-4">
-                <img src="{{asset('image/img/home/about2.png')}}" class="img-fluid rounded-4" alt="" width="100%">
-                <a href="https://youtu.be/kQaOKLKyYvY" class="glightbox play-btn"></a>
+                <img src="{{asset('image/img/home/'.$about['youtube_thumbnail'])}}" class="img-fluid rounded-4" alt="" width="100%">
+                <a href="{{ $about['youtube_url'] }}" class="glightbox play-btn"></a>
               </div>
             </div>
           </div>
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+    </section>
+    <!-- End About Us Section -->
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio sections-bg">
       <div class="container" data-aos="fade-up">
-
         <div class="section-header">
           <h2>Proyek Cakrawala</h2>
           <p> CAKRAWALA UTAMA RESIDENCE Adalah project perumahan pertama dan sukses sampai saat ini, sudah lebih dari 500+ unit rumah terjual. </p>
         </div>
 
         <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
-
-          {{-- <div>
-            <ul class="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-product">Product</li>
-              <li data-filter=".filter-branding">Branding</li>
-              <li data-filter=".filter-books">Books</li>
-            </ul><!-- End Portfolio Filters -->
-          </div> --}}
-
-          {{-- <div class="row gy-4 portfolio-container">
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <a href="{{asset('vendor/impact/assets/img/portfolio/app-1.jpg')}}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/app-1.jpg')}}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/product-1.jpg')}}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/branding-1.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-books">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/books-1.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/app-2.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/product-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/product-2.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/branding-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/branding-2.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-books">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/books-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/books-2.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/app-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/app-3.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/product-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/product-3.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/branding-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/branding-3.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Branding 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-4 col-md-6 portfolio-item filter-books">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/books-3.jpg')}} " class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div> --}}
-          
-          {{-- <div class="row justify-content-center gy-4 portfolio-container"> --}}
-          <div class="row justify-content-center ">
+         
+          {{-- Website Scale --}}
+          <div class="row justify-content-center website-show">
             @foreach ($projects as $project)
-            <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
-              <div class="portfolio-wrap">
-                <a href="{{asset('image/project/'. $project['image_poster'])}}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('image/project/'. $project['image_poster'])}}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h5><a href="project/detail/{{ $project['id'] }}" target="__blank" title="More Details">{{ $project['name'] }}</a></h5>
-                  <p>{{ $project['location'] }}</p>
-                  {{-- <a href="project/detail/{{ $project['id'] }}" role="button" class="buy-btn">Selengkapnya</a> --}}
+              <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
+                <div class="portfolio-wrap">
+                  <a href="{{asset('image/project/'. $project['image_poster'])}}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('image/project/'. $project['image_poster'])}}" class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h5><a href="project/detail/{{ $project['id'] }}" target="__blank" title="More Details">{{ $project['name'] }}</a></h5>
+                    <p>{{ $project['location'] }}</p>
+                  </div>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->  
-            @endforeach
-
-
-            {{-- <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-              <div class="portfolio-wrap">
-                <a href="assets/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('vendor/impact/assets/img/portfolio/product-1.jpg')}}" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div> --}}
-            <!-- End Portfolio Item -->           
-
+            @endforeach         
           </div>
-          <!-- End Portfolio Container -->
-
+          {{-- Phone Scale --}}
+          <div class="row justify-content-center phone-show">
+            @foreach ($projects as $index => $project)
+            @if ($index < 3)
+              <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
+                <div class="portfolio-wrap">
+                  <a href="{{asset('image/project/'. $project['image_poster'])}}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{asset('image/project/'. $project['image_poster'])}}" class="img-fluid" alt=""></a>
+                  <div class="portfolio-info">
+                    <h5><a href="project/detail/{{ $project['id'] }}" target="__blank" title="More Details">{{ $project['name'] }}</a></h5>
+                    <p>{{ $project['location'] }}</p>
+                  </div>
+                </div>
+              </div>
+            @else
+            @break
+            @endif
+            @endforeach       
+            <div class="row mt-5 mb-5">
+              <div class="col">
+                  <a href="{{ $about['maps_url'] }}" class="btn btn-primary btn-lg btn-block-custom1"><i class="bi bi-houses-fill"></i> Jelajahi koleksi proyek lain kami</a>
+              </div>
+          </div>  
+          </div>
         </div>
-
       </div>
-    </section><!-- End Portfolio Section -->
+    </section>
+    <!-- End Portfolio Section -->
 
     <!-- ======= Call To Action Section ======= -->
     <section id="call-to-action" class="call-to-action">

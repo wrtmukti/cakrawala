@@ -8,6 +8,38 @@
         </div>
     </section>
 
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container " data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>{{ $about['title'] }}</h2>
+                <p>{{ $about['sub_title'] }}</p>
+            </div>
+
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <h4><b>{{ strtoupper($about['company_name']) }}</b></h4>
+                    <p>{{ $about['since'] }}</p>
+                    <img src="{{ asset('image/img/home/' . $about['image']) }}" class="img-fluid rounded-4 mb-5"
+                        alt="" width="100%">
+                    <p>{{ $about['description2'] }}</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content ps-0 ps-lg-5">
+                        <p>{{ $about['description3'] }}</p>
+                        <div class="position-relative mt-4">
+                            <img src="{{ asset('image/img/home/' . $about['youtube_thumbnail']) }}"
+                                class="img-fluid rounded-4" alt="" width="100%">
+                            <a href="{{ $about['youtube_url'] }}" class="glightbox play-btn"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Us Section -->
+
     {{-- Me location --}}
     <section id="location" class="about">
         <div class="container " data-aos="fade-up">
