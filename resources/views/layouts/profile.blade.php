@@ -8,6 +8,8 @@
   <title>Cakrawala</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  {{-- NGROK ASSET --}}
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
   <!-- Favicons -->
   <link href="{{asset('image/icon/logo-cakrawala.png')}}" rel="icon">
@@ -34,6 +36,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('vendor/impact/assets/css/main.css')}}" rel="stylesheet">
+
+
 
   <!-- =======================================================
   * Template Name: Impact
@@ -184,6 +188,11 @@
   <script src="{{asset('vendor/impact/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('vendor/impact/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{asset('vendor/impact/assets/vendor/php-email-form/validate.js')}}"></script>
+
+
+  {{-- CDN Carousel --}}
+  <script src="{{ asset('vendor/Impact/assets/js/jquery_3.2.1.min.js') }}"></script>
+  <script src="{{ asset('vendor/Impact/assets/js/bootstrap_bundle_4.3.1.min.js') }}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{asset('vendor/impact/assets/js/main.js')}}"></script>

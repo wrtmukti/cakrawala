@@ -65,7 +65,6 @@
     <!-- End Hero Section -->
 
     <main id="main">
-
         <!-- ======= About Us Section ======= -->
         <section id="about" class="about">
             <div class="container " data-aos="fade-up">
@@ -116,9 +115,9 @@
                         @foreach ($projects as $project)
                             <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
                                 <div class="portfolio-wrap">
-                                    <a href="{{ asset('image/project/' . $project['image_poster']) }}"
+                                    <a href="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
                                         data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                            src="{{ asset('image/project/' . $project['image_poster']) }}"
+                                            src="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
                                             class="img-fluid" alt=""></a>
                                     <div class="portfolio-info">
                                         <h5><a href="project/detail/{{ $project['id'] }}" target="__blank"
@@ -135,9 +134,9 @@
                             @if ($index < 3)
                                 <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
                                     <div class="portfolio-wrap">
-                                        <a href="{{ asset('image/project/' . $project['image_poster']) }}"
+                                        <a href="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
                                             data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                                src="{{ asset('image/project/' . $project['image_poster']) }}"
+                                                src="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
                                                 class="img-fluid" alt=""></a>
                                         <div class="portfolio-info">
                                             <h5><a href="project/detail/{{ $project['id'] }}" target="__blank"
