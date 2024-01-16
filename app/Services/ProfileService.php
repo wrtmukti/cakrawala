@@ -162,12 +162,19 @@ class ProfileService
     {
         $data = array(
             'title' => 'TENTANG KAMI',
+            'sub_title' => 'PT. CAKRAWALA PRATAMA MANUNGGAL adalah perusahaan yang bergerak dibidang kontraktor & developer.',
             'company_name' => 'PT. Cakrawala Pratama Manunggal',
             'main_description' => 'Adalah perusahaan yang bergerak dibidang kontraktor & developer. Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
             'description' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak di bidang properti. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat Indonesia dengan menyediakan hunian yang layak dan berkualitas.',
+            'description2' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak dibidang kontraktor & developer yang berdiri sejak tahun 2022. Perumahan Cakrawala Utama Residence 1 merupakan project pertama kami dan terus berkembang, hingga saat ini kami sudah mengembangkan lebih dari 500 unit rumah per tahun.',
+            'description3' => 'Dengan mengusung konsep perumahan bersubsidi yang berkualitas prima dalam bangunan rumah,lingkungan hunian yang tertata,aman,nyaman,asri dan hijau, bernuansa feel like warm homey sehingga dapat meningkatkan kualitas hidup penghuninya. Dengan dukungan dari pihak perbankan dan instansi terkait, mempertegas komitmen kami untuk terus berkembang dan memberikan hunian terbaik untuk anda.',
+            'since' => 'Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
             'address' => 'Jl. Raya Solo - Purwodadi KM 12,5, Kec. Mojolaban, Kab. Sukoharjo, Jawa Tengah',
             'maps_url' => 'https://maps.app.goo.gl/kn9XTGxFvDzYe2DUA',
             'maps_iframe' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63282.313786208775!2d110.77761244860885!3d-7.5592070683129915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16627ad11ab1%3A0xe7fe4e0454bc3095!2sSurakarta%2C%20Kota%20Surakarta%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1705082053182!5m2!1sid!2sid',
+            'youtube_url' => 'https://youtu.be/kQaOKLKyYvY',
+            'youtube_thumbnail' => 'about2.png',
+            'image' => 'about.png',
         );
 
         return $data;

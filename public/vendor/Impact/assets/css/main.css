@@ -1286,6 +1286,23 @@ section {
   }
 }
 
+/* Project switcher in phone and website scale */
+/* Untuk resolusi <= 767px */
+@media (max-width: 767px) {
+  .website-show {
+    display: none;
+  }
+}
+
+/* Untuk resolusi > 767px */
+@media (min-width: 768px) {
+
+  .phone-show {
+    display: none;
+  }
+}
+
+
 .portfolio .portfolio-wrap {
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 10px;

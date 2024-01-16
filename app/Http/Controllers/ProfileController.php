@@ -22,8 +22,8 @@ class ProfileController extends Controller
     {
         
         $projects = $this->projectService->datasetProject();
-        // dd($projects);
-        return view('index', compact('projects'));
+        $about = $this->profileService->about();
+        return view('index', compact('projects', 'about'));
     }
 
     public function about()
