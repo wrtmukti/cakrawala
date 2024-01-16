@@ -108,47 +108,47 @@ class ProfileService
             [
                 'name' => 'PPJB Notaris',
                 'desc' => 'Proses PPJB Bersama Notaris',
-                'image' => 'INSTANSI 1.jpg'
+                'image' => '1.jpg'
             ],
             [
                 'name' => 'Survei BPN',
                 'desc' => 'Survei Bekerjasama Dengan BPN',
-                'image' => 'INSTANSI 2.jpg'
+                'image' => '2.jpg'
             ],
             [
                 'name' => 'PDAM Kabupaten Sukoharjo',
                 'desc' => 'Bekerjasama Dengan PDAM Kabupaten Sukoharjo',
-                'image' => 'INSTANSI 3.jpg'
+                'image' => '3.jpg'
             ],
             [
                 'name' => 'Musyawarah Warga',
                 'desc' => 'Musyawarah Dengan Warga Setempat',
-                'image' => 'INSTANSI 4.jpg'
+                'image' => '4.jpg'
             ],
             [
                 'name' => 'Bank BTN',
                 'desc' => 'Event Dengan Bank BTN',
-                'image' => 'INSTANSI 5.jpg'
+                'image' => '5.jpg'
             ],
             [
                 'name' => 'BTN dan TAPERA',
                 'desc' => 'Event Bersama BTN dan TAPERA',
-                'image' => 'INSTANSI 6.jpg'
+                'image' => '6.jpg'
             ],
             [
                 'name' => 'Akad Bank Masal',
                 'desc' => 'Akad Bank Masal PT. Cakrawala Pratama Manunggal',
-                'image' => 'INSTANSI 7.jpg'
+                'image' => '7.jpg'
             ],
             [
                 'name' => 'Kelurahan Setempat',
                 'desc' => 'Bekerja Sama Dengan Kelurahan Setempat',
-                'image' => 'INSTANSI 8.jpg'
+                'image' => '8.jpg'
             ],
             [
                 'name' => 'Doa Bersama',
                 'desc' => 'Prosesi Doa Bersama Pembukaan Lahan',
-                'image' => 'INSTANSI 10.jpg'
+                'image' => '9.jpg'
             ],
         );
         return array(

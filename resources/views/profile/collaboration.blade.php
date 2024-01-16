@@ -22,9 +22,9 @@
                 @foreach ($collaboration['activity'] as $activity)
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <a href="{{ asset('image/collaboration/'.$activity['image']) }}"
+                            <a href="{{ asset('image/collaboration/' . $activity['image']) }}"
                                 data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                    src="{{ asset('image/collaboration/'.$activity['image']) }}" class="img-fluid"
+                                    src="{{ asset('image/collaboration/' . $activity['image']) }}" class="img-fluid"
                                     alt="Image Collaboration"></a>
                             <div class="portfolio-info" style="height: 150px">
                                 <h4><a href="portfolio-details.html" title="More Details">{{ $activity['name'] }}</a></h4>

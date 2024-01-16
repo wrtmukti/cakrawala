@@ -23,7 +23,15 @@ class ProfileController extends Controller
         
         $projects = $this->projectService->datasetProject();
         $about = $this->profileService->about();
-        return view('index', compact('projects', 'about'));
+        $collaboration = $this->profileService->collaboration();
+        $totalElements = count($collaboration['activity']);
+        $remainder = $totalElements % 4;
+        $dataEven = [];
+        // Check odd or even
+        if ($remainder != 0) {
+            $dataEven = array_slice($collaboration['activity'], 0, $totalElements - $remainder);
+        }
+        return view('index', compact('projects', 'about', 'collaboration', 'dataEven'));
     }
 
     public function about()
