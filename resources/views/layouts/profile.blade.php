@@ -9,7 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
   {{-- NGROK ASSET --}}
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
 
   <!-- Favicons -->
   <link href="{{asset('image/icon/logo-cakrawala.png')}}" rel="icon">
