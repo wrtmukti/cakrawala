@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProjectService
 {
@@ -146,5 +147,27 @@ class ProjectService
         );
 
         return $project;
+    }
+
+    // Download Brochures
+    public function downloadBrochures($id)
+    {
+        $project = $this->datasetProject();
+
+        // Check id in dataset
+        $filtered = array_filter($project, function ($item) use ($id) {
+            return $item['id'] === $id;
+        });
+        // Give 1 row data
+        $data = $filtered ? array_values($filtered)[0] : [];
+
+        $poster = $data['image_poster'];
+        $siteplan = $data['image_siteplan'];
+        $type = $data['image_type'];
+        $name = $data['name'];
+
+        // Load pdf view
+        $pdf = Pdf::loadView('profile.projects.brochure', compact('poster', 'siteplan', 'type', 'name'));
+        return $pdf->download('Brosur '.$name.'.pdf');
     }
 }

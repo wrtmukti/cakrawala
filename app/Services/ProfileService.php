@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\ProjectService;
+use Illuminate\Http\Request;
 
 class ProfileService
 {
@@ -19,7 +20,7 @@ class ProfileService
         $title = "Kontak Kami";
         $description = "Selamat datang di halaman kontak kami, tempat untuk bertanya, berbagi, dan berkolaborasi. Kami siap menerima pesan Anda dan memberikan respon secepat mungkin!";
         $name = "Cakrawala";
-        $whatsapp = "62813493769098";
+        $whatsapp = "628989929804";
         $telephone = "62813493769098";
         $email = "cakrawalapratamamanunggalresmi@gmail.com";
         $instagram = "";
@@ -29,6 +30,9 @@ class ProfileService
         $ad = '';
         $brochures = '';
         $contact_me = '';
+        $projectName['name'] = '';
+        $projectName['type'] = '';
+
         if (!empty($id)) {
             $projectName = $this->projectService->detailProject($id);
             $ad = "Hallo " . $name . ", Saya tertarik dengan penawaran yang anda berikan di dalam website, pada rumah " . $projectName['name'] . " dengan type " . $projectName['type'];
@@ -39,6 +43,7 @@ class ProfileService
             $brochures = str_replace(' ', '%20', $brochures);
             $contact_me = str_replace(' ', '%20', $contact_me);
         }
+        
         $more_info = "Hallo " . $name . ", saya ingin mendapatkan informasi lebih lanjut mengenai rumah yang anda tawarkan di dalam website";
         // Link for anchor href
         $link = 'https://api.whatsapp.com/send?phone=' . $whatsapp . '&text=';
@@ -55,6 +60,7 @@ class ProfileService
             'brochures' => $link . $brochures,
             'contact_me' => $link . $contact_me,
             'no_whatsapp' => $whatsapp_formatted,
+            'whatsapp_link' => $link,
             'more_info' => $link . $more_info,
             'no_telephone' => $telephone_formatted,
             'email' => $email,
@@ -65,6 +71,8 @@ class ProfileService
             'alamat' => $this->about()['address'],
             'description' => $this->about()['main_description'],
             'company_name' => $this->about()['company_name'],
+            'projectName' => $projectName['name'],
+            'projectType' => $projectName['type'],
         );
     }
 

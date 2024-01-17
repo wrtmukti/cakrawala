@@ -25,8 +25,9 @@ Route::get('/about', [App\Http\Controllers\ProfileController::class, 'about'])->
 Route::get('/award', [App\Http\Controllers\ProfileController::class, 'award'])->name('award');
 Route::get('/contact', [App\Http\Controllers\ProfileController::class, 'contact'])->name('contact');
 Route::get('/collaboration', [App\Http\Controllers\ProfileController::class, 'collaboration'])->name('collaboration');
+Route::post('/specialOffer', [App\Http\Controllers\ProfileController::class, 'specialOffer'])->name('specialOffer');
 // Project
 Route::get('/project', [App\Http\Controllers\ProjectController::class, 'index'])->name('project');
 Route::get('/project/detail/{id}', [App\Http\Controllers\ProjectController::class, 'detail'])->name('detail');
-Route::get('/download-brochures', [App\Http\Controllers\ProjectController::class, 'downloadBrochures'])->name('download-brochures');
+Route::get('/download-brochures/{id}', [App\Http\Controllers\ProjectController::class, 'downloadBrochures'])->name('download-brochures');
 

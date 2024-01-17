@@ -57,4 +57,25 @@ class ProfileController extends Controller
     {
         return view('profile.contact');
     }
+
+    public function specialOffer(Request $request)
+    {
+        // Request from form
+        $custName = $request->input('custName');
+        $custEmail = $request->input('custEmail');
+        $custOffer = $request->input('custOffer');
+        $id = $request->input('id');
+
+        // Company Data
+        $companyData = $this->profileService->contactMe($id);
+        // Format message
+        $special_offer = "Hallo " . $companyData['company_name'] . ", saya ingin mendapatkan penawaran khusus dari anda. Dapatkah saya mengobrol dengan anda melalui pesan ini?%0A%0ASaya yang ber:%0A- Nama : " . $custName . "%0A- Email : " . $custEmail . "%0A- Penawaran dari saya : " . $custOffer . "%0A%0ADemikian yang dapat saya sampaikan. Atas perhatian anda saya ucapkan terimakasih banyak.";
+        if (!empty($id)) {
+            $special_offer = "Hallo " . $companyData['company_name'] . ", saya ingin mendapatkan penawaran khusus dari anda. %0A%0A Pada :  %0A- Rumah :" . $companyData['projectName'] . "%0A- Type " . $companyData['projectType'] . ". %0A%0A Dapatkah saya mengobrol dengan anda melalui pesan ini?%0A%0ASaya yang ber:%0A- Nama : " . $custName . "%0A- Email : " . $custEmail . "%0A- Penawaran dari saya : " . $custOffer . "%0A%0ADemikian yang dapat saya sampaikan. Atas perhatian anda saya ucapkan terimakasih banyak.";
+        }
+
+        // Link for anchor href
+        $link = $companyData['whatsapp_link'] . $special_offer;
+        return redirect($link);
+    }
 }
