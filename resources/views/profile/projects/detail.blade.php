@@ -24,8 +24,11 @@
                         <div class="carousel-inner">
                             @foreach ($project['image_poster'] as $img)
                                 <div class="carousel-item {{ $img['carousel_active'] }}">
-                                    <img class="image-project" style="width: 38%; height: auto;"
-                                        src="{{ asset('image/project/' . $img['img']) }}" alt="Project Image">
+                                    <a href="{{ asset('image/project/' . $img['img']) }}"
+                                        data-gallery="portfolio-gallery-app" class="glightbox">
+                                        <img class="image-project" style="width: 38%; height: auto;"
+                                            src="{{ asset('image/project/' . $img['img']) }}" alt="Project Image">
+                                    </a>
                                 </div>
                             @endforeach
                         </div>
@@ -66,8 +69,11 @@
                     nobis omnis tiledo stran delop</p>
             </div>
             <div class="section-header">
+                <a href="{{ asset('image/project/' . $project['image_type']) }}"
+                data-gallery="portfolio-gallery-app" class="glightbox">
                 <img src="{{ asset('image/project/' . $project['image_type']) }}" class="img-fluid image-project"
                     alt="TYPE">
+                </a>
             </div>
         </section>
 
@@ -82,8 +88,11 @@
                 </div>
             </div>
             <div class="section-header">
+                <a href="{{ asset('image/project/' . $project['image_siteplan']) }}"
+                data-gallery="portfolio-gallery-app" class="glightbox">
                 <img src="{{ asset('image/project/' . $project['image_siteplan']) }}" class="img-fluid image-project"
                     alt="Siteplan">
+                </a>
             </div>
         </section><!-- End Contact Section -->
 
@@ -103,7 +112,7 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="row mt-5 mb-5">
                     <div class="col">
-                        <a href="{{ $contact['brochures'] }}" class="btn btn-primary btn-lg btn-block-custom1"><i
+                        <a href="{{ route('download-brochures') }}" class="btn btn-primary btn-lg btn-block-custom1"><i
                                 class="fa fa-download"></i> Unduh Brosur</a>
                     </div>
                     <div class="col">

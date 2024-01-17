@@ -98,7 +98,7 @@
         </section>
         <!-- End About Us Section -->
 
-        <!-- ======= Portfolio Section ======= -->
+        <!-- ======= Project Section ======= -->
         <section id="portfolio" class="portfolio sections-bg">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
@@ -120,9 +120,29 @@
                                             src="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
                                             class="img-fluid" alt=""></a>
                                     <div class="portfolio-info">
-                                        <h5><a href="project/detail/{{ $project['id'] }}" target="__blank"
-                                                title="More Details">{{ $project['name'] }}</a></h5>
-                                        <p>{{ $project['location'] }}</p>
+                                        {{-- Name --}}
+                                        <h5>
+                                            <a href="project/detail/{{ $project['id'] }}" target="__blank"
+                                                title="More Details"><b>{{ $project['name'] }}</b>
+                                            </a>
+                                        </h5>
+
+                                        {{-- Location --}}
+                                        <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['location'] }}</p>
+
+                                        <div class="row mt-4">
+                                            {{-- Type --}}
+                                            <div class="col-4 text-left">
+                                                <span class="btn btn-danger"><b> {{ $project['type'] }}</b></span>
+                                            </div>
+                                            {{-- Price --}}
+                                            <div class="col-8 d-flex justify-content-end align-items-center">
+                                                <h6 class="mt-2" style="color:#b85959">
+                                                    <b>{{ $project['price'] }}</b>/Bulan
+                                                </h6>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -139,9 +159,29 @@
                                                 src="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
                                                 class="img-fluid" alt=""></a>
                                         <div class="portfolio-info">
-                                            <h5><a href="project/detail/{{ $project['id'] }}" target="__blank"
-                                                    title="More Details">{{ $project['name'] }}</a></h5>
-                                            <p>{{ $project['location'] }}</p>
+                                            {{-- Name --}}
+                                            <h5>
+                                                <a href="project/detail/{{ $project['id'] }}" target="__blank"
+                                                    title="More Details"><b>{{ $project['name'] }}</b>
+                                                </a>
+                                            </h5>
+
+                                            {{-- Location --}}
+                                            <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['location'] }}</p>
+
+                                            <div class="row mt-4">
+                                                {{-- Type --}}
+                                                <div class="col-4 text-left">
+                                                    <span class="btn btn-danger"><b> {{ $project['type'] }}</b></span>
+                                                </div>
+                                                {{-- Price --}}
+                                                <div class="col-8 d-flex justify-content-end align-items-center">
+                                                    <h6 class="mt-2" style="color:#b85959">
+                                                        <b>{{ $project['price'] }}</b>/Bulan
+                                                    </h6>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +191,7 @@
                     @endforeach
                     <div class="row mt-5 mb-5">
                         <div class="col">
-                            <a href="{{ $about['maps_url'] }}" class="btn btn-primary btn-lg btn-block-custom1"><i
+                            <a href="{{ route('project') }}" class="btn btn-primary btn-lg btn-block-custom1"><i
                                     class="bi bi-houses-fill"></i> Jelajahi koleksi proyek lain kami</a>
                         </div>
                     </div>
@@ -159,7 +199,7 @@
             </div>
         </div>
     </section>
-    <!-- End Portfolio Section -->
+    <!-- End Project Section -->
 
     <!-- ======= Call To Action Section ======= -->
     <section id="call-to-action" class="call-to-action">
@@ -227,7 +267,8 @@
                 @endforeach
                 <div class="row mt-5 mb-5">
                     <div class="col">
-                      <a href="{{ route('collaboration') }}" class="btn btn-primary btn-lg btn-block-custom1"><i class="bi bi-people-fill"></i> Jelajahi kerjasama lainnya!</a>
+                        <a href="{{ route('collaboration') }}" class="btn btn-primary btn-lg btn-block-custom1"><i
+                                class="bi bi-people-fill"></i> Jelajahi kerjasama lainnya!</a>
                     </div>
                 </div>
             </div>
@@ -250,7 +291,8 @@
             @endforeach
             <div class="row mt-5 mb-5">
                 <div class="col">
-                    <a href="{{ route('collaboration') }}" class="btn btn-primary btn-lg btn-block-custom1"><i class="bi bi-people-fill"></i> Jelajahi kerjasama lainnya!</a>
+                    <a href="{{ route('collaboration') }}" class="btn btn-primary btn-lg btn-block-custom1"><i
+                            class="bi bi-people-fill"></i> Jelajahi kerjasama lainnya!</a>
                 </div>
             </div>
         </div>

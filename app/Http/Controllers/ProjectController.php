@@ -20,7 +20,9 @@ class ProjectController extends Controller
     
     public function index()
     {
-        //
+        $projects = $this->projectService->datasetProject();
+        // dd($projects);
+        return view('profile.projects.index', compact('projects'));
     }
 
     
@@ -59,10 +61,18 @@ class ProjectController extends Controller
         //
     }
 
+    // Detail Project
     public function detail($id)
     {
         $project = $this->projectService->detailProject($id);
         $contact = $this->profileService->contactMe($id);
         return view('profile.projects.detail', compact('project', 'contact'));
+    }
+
+    // Download Brochures
+    public function downloadBrochures()
+    {
+        $brochures = $this->projectService->downloadBrochures();
+        return view('profile.projects.download-brochures', compact('brochures'));
     }
 }
