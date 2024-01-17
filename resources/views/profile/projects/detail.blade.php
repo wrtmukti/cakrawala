@@ -112,7 +112,7 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="row mt-5 mb-5">
                     <div class="col">
-                        <a href="{{ route('download-brochures') }}" class="btn btn-primary btn-lg btn-block-custom1"><i
+                        <a href="{{ route('download-brochures', $project['id']) }}" class="btn btn-primary btn-lg btn-block-custom1"><i
                                 class="fa fa-download"></i> Unduh Brosur</a>
                     </div>
                     <div class="col">

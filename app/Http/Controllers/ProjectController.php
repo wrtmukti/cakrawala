@@ -66,13 +66,13 @@ class ProjectController extends Controller
     {
         $project = $this->projectService->detailProject($id);
         $contact = $this->profileService->contactMe($id);
-        return view('profile.projects.detail', compact('project', 'contact'));
+        return view('profile.projects.detail', compact('project', 'contact', 'id'));
     }
 
     // Download Brochures
     public function downloadBrochures()
     {
         $brochures = $this->projectService->downloadBrochures();
-        return view('profile.projects.download-brochures', compact('brochures'));
+        return $brochures;
     }
 }
