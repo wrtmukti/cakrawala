@@ -37,6 +37,9 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('vendor/impact/assets/css/main.css')}}" rel="stylesheet">
 
+  {{-- Carousel --}}
+  <script src="{{ asset('vendor/Impact/assets/js/jquery_3.2.1.min.js') }}"></script>
+  <script src="{{ asset('vendor/Impact/assets/js/bootstrap_bundle_4.3.1.min.js') }}"></script>
 
 
   <!-- =======================================================
@@ -69,7 +72,7 @@
   <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{{ route('/') }}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Cakrawala<span>.</span></h1>
@@ -80,7 +83,7 @@
           @foreach ($nav_bar as $nav)
             @if ($nav['dropdown'] == 'true')
               <li class="dropdown">
-                <a href="#" @if(Route::currentRouteName() == 'detail') class="active" @endif>
+                <a href="#" @if(Route::currentRouteName() == 'detail' || Route::currentRouteName() == 'project' ) class="active" @endif>
                   <span>{{ $nav['name'] }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
                 </a>
                 <ul>
@@ -190,9 +193,7 @@
   <script src="{{asset('vendor/impact/assets/vendor/php-email-form/validate.js')}}"></script>
 
 
-  {{-- CDN Carousel --}}
-  <script src="{{ asset('vendor/Impact/assets/js/jquery_3.2.1.min.js') }}"></script>
-  <script src="{{ asset('vendor/Impact/assets/js/bootstrap_bundle_4.3.1.min.js') }}"></script>
+  
 
   <!-- Template Main JS File -->
   <script src="{{asset('vendor/impact/assets/js/main.js')}}"></script>

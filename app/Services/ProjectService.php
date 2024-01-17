@@ -30,8 +30,6 @@ class ProjectService
                 'image_poster' => [
                     ['img' => 'poster/cru1.jpg', 
                     'carousel_active' => 'active'],
-                    ['img' => 'poster/cru1.jpg', 
-                    'carousel_active' => ''],
                 ],
                 'image_siteplan' => 'siteplan/cru1.jpg',
                 'image_transparent' => 'bg_transparent/cru.png',
@@ -48,7 +46,7 @@ class ProjectService
                 'name' => 'Cakrawala Utama Residence 2',
                 'image_poster' => [
                     ['img' => 'poster/cru2.jpg', 
-                    'carousel_active' => ''],
+                    'carousel_active' => 'active'],
                 ],
                 'image_siteplan' => 'siteplan/cru2.jpg',
                 'image_transparent' => 'bg_transparent/cru.png',
@@ -65,7 +63,7 @@ class ProjectService
                 'name' => 'Cakrawala Utama Residence 3',
                 'image_poster' => [
                     ['img' => 'poster/cru3.jpg', 
-                    'carousel_active' => ''],
+                    'carousel_active' => 'active'],
                 ],
                 'image_siteplan' => 'siteplan/cru3.jpg',
                 'image_transparent' => 'bg_transparent/cru.png',
@@ -82,7 +80,7 @@ class ProjectService
                 'name' => 'Cakrawala Utama Residence 4',
                 'image_poster' => [
                     ['img' => 'poster/cru4.jpg', 
-                    'carousel_active' => '']
+                    'carousel_active' => 'active']
                 ],
                 'image_siteplan' => 'siteplan/cru4.jpg',
                 'image_transparent' => 'bg_transparent/cru4.png',
@@ -99,7 +97,7 @@ class ProjectService
                 'name' => 'Cakrawala Utama Residence 5',
                 'image_poster' => [
                     ['img' => 'poster/cru5.jpg', 
-                    'carousel_active' => '']
+                    'carousel_active' => 'active']
                 ],
                 'image_siteplan' => 'siteplan/cru5.jpg',
                 'image_transparent' => 'bg_transparent/cru5.png',
@@ -116,7 +114,7 @@ class ProjectService
                 'name' => 'Cakrawala Utama Residence 6',
                 'image_poster' => [
                     ['img' => 'poster/cru6.jpg', 
-                    'carousel_active' => '']
+                    'carousel_active' => 'active']
                 ],
                 'image_siteplan' => 'siteplan/cru6.jpg',
                 'image_transparent' => 'bg_transparent/cru6.png',
@@ -133,7 +131,7 @@ class ProjectService
                 'name' => 'Cakrawala Utama Residence 7',
                 'image_poster' => [
                     ['img' => 'poster/cru7.jpg', 
-                    'carousel_active' => '']
+                    'carousel_active' => 'active']
                 ],
                 'image_siteplan' => 'siteplan/cru7.jpg',
                 'image_transparent' => 'bg_transparent/cru7.png',
