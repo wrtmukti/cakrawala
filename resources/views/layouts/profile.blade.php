@@ -88,7 +88,7 @@
                 </a>
                 <ul>
                   @foreach ($nav['dropdown_list'] as $sub_menu)
-                    <li><a href="{{ route($nav['route'], $sub_menu['id']) }}" >{{ $sub_menu['name'] }}</a></li>
+                    <li><a href="{{ route($nav['route'], $sub_menu['id_project']) }}" >{{ $sub_menu['project_name'] }}</a></li>
                   @endforeach
                 </ul>
               </li>

@@ -21,44 +21,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = $this->projectService->datasetProject();
-        // dd($projects);
         return view('profile.projects.index', compact('projects'));
-    }
-
-    
-    public function create()
-    {
-        //
-    }
-
-  
-    public function store(Request $request)
-    {
-        //
-    }
-
-    
-    public function show($id)
-    {
-        //
-    }
-
-    
-    public function edit($id)
-    {
-        //
-    }
-
-   
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    
-    public function destroy($id)
-    {
-        //
     }
 
     // Detail Project
@@ -70,9 +33,9 @@ class ProjectController extends Controller
     }
 
     // Download Brochures
-    public function downloadBrochures()
+    public function downloadBrochures($id)
     {
-        $brochures = $this->projectService->downloadBrochures();
+        $brochures = $this->projectService->downloadBrochures($id);
         return $brochures;
     }
 }

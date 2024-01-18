@@ -22,12 +22,12 @@
                     <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
                         <!-- slides -->
                         <div class="carousel-inner">
-                            @foreach ($project['image_poster'] as $img)
-                                <div class="carousel-item {{ $img['carousel_active'] }}">
-                                    <a href="{{ asset('image/project/' . $img['img']) }}"
+                            @foreach ($project->imgPosters as $img)
+                                <div class="carousel-item {{ $img['carousel_active'] == 'Y' ? 'active' : '' }}">
+                                    <a href="{{ asset('image/project/poster/' . $img['img_file']) }}"
                                         data-gallery="portfolio-gallery-app" class="glightbox">
                                         <img class="image-project" style="width: 38%; height: auto;"
-                                            src="{{ asset('image/project/' . $img['img']) }}" alt="Project Image">
+                                            src="{{ asset('image/project/poster/' . $img['img_file']) }}" alt="Project Image">
                                     </a>
                                 </div>
                             @endforeach
@@ -43,12 +43,12 @@
 
                         <!-- Thumbnails -->
                         <ol class="carousel-indicators list-inline">
-                            @foreach ($project['image_poster'] as $index => $img)
-                                <li class="list-inline-item {{ $img['carousel_active'] }}">
+                            @foreach ($project->imgPosters as $index => $img)
+                                <li class="list-inline-item active">
                                     <a id="carousel-selector-{{ $index }}"
                                         class="{{ !empty($img['carousel_active']) ? 'selected' : '' }}"
                                         data-slide-to="{{ $index }}" data-target="#custCarousel">
-                                        <img src="{{ asset('image/project/' . $img['img']) }}" class="img-fluid"
+                                        <img src="{{ asset('image/project/poster/' . $img['img_file']) }}" class="img-fluid"
                                             style="border-radius: 5px">
                                     </a>
                                 </li>
@@ -68,17 +68,51 @@
                 <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id
                     nobis omnis tiledo stran delop</p>
             </div>
-            <div class="section-header">
-                <a href="{{ asset('image/project/' . $project['image_type']) }}"
-                data-gallery="portfolio-gallery-app" class="glightbox">
-                <img src="{{ asset('image/project/' . $project['image_type']) }}" class="img-fluid image-project"
-                    alt="TYPE">
-                </a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                        <!-- slides -->
+                        <div class="carousel-inner">
+                            @foreach ($project->imgTypes as $img)
+                                <div class="carousel-item {{ $img['carousel_active'] == 'Y' ? 'active' : '' }}">
+                                    <a href="{{ asset('image/project/type/' . $img['img_file']) }}"
+                                        data-gallery="portfolio-gallery-app" class="glightbox">
+                                        <img class="image-project" style="width: 38%; height: auto;"
+                                            src="{{ asset('image/project/type/' . $img['img_file']) }}" alt="Project Image">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <!-- Left right -->
+                        <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+
+                        <!-- Thumbnails -->
+                        <ol class="carousel-indicators list-inline">
+                            @foreach ($project->imgTypes as $index => $img)
+                                <li class="list-inline-item active">
+                                    <a id="carousel-selector-{{ $index }}"
+                                        class="{{ !empty($img['carousel_active']) ? 'selected' : '' }}"
+                                        data-slide-to="{{ $index }}" data-target="#custCarousel">
+                                        <img src="{{ asset('image/project/type/' . $img['img_file']) }}" class="img-fluid"
+                                            style="border-radius: 5px">
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ol>
+
+                    </div>
+                </div>
             </div>
         </section>
 
 
-
+        {{-- Siteplan --}}
         <section id="siteplan" class="contact">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
@@ -87,12 +121,46 @@
                         nobis omnis tiledo stran delop</p>
                 </div>
             </div>
-            <div class="section-header">
-                <a href="{{ asset('image/project/' . $project['image_siteplan']) }}"
-                data-gallery="portfolio-gallery-app" class="glightbox">
-                <img src="{{ asset('image/project/' . $project['image_siteplan']) }}" class="img-fluid image-project"
-                    alt="Siteplan">
-                </a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                        <!-- slides -->
+                        <div class="carousel-inner">
+                            @foreach ($project->imgSiteplans as $img)
+                                <div class="carousel-item {{ $img['carousel_active'] == 'Y' ? 'active' : '' }}">
+                                    <a href="{{ asset('image/project/siteplan/' . $img['img_file']) }}"
+                                        data-gallery="portfolio-gallery-app" class="glightbox">
+                                        <img class="image-project" style="width: 38%; height: auto;"
+                                            src="{{ asset('image/project/siteplan/' . $img['img_file']) }}" alt="Project Image">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <!-- Left right -->
+                        <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+
+                        <!-- Thumbnails -->
+                        <ol class="carousel-indicators list-inline">
+                            @foreach ($project->imgSiteplans as $index => $img)
+                                <li class="list-inline-item active">
+                                    <a id="carousel-selector-{{ $index }}"
+                                        class="{{ !empty($img['carousel_active']) ? 'selected' : '' }}"
+                                        data-slide-to="{{ $index }}" data-target="#custCarousel">
+                                        <img src="{{ asset('image/project/siteplan/' . $img['img_file']) }}" class="img-fluid"
+                                            style="border-radius: 5px">
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ol>
+
+                    </div>
+                </div>
             </div>
         </section><!-- End Contact Section -->
 
@@ -100,28 +168,28 @@
 
 
         <!-- ======= Location ======= -->
-        <section id="location" class="about">
+        <section id="location" class="about sections-bg">
             <div class="container " data-aos="fade-up">
 
                 <div class="section-header">
                     <h2>LOKASI</h2>
-                    <h4>{{ $project['location'] }}</h4>
+                    <h4>{{ $project['address'] }}</h4>
                 </div>
-                <iframe style="border-radius: 20px" src="{{ $project['maps_iframe'] }}" width="100%" height="450"
+                <iframe style="border-radius: 20px; box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.3);" src="{{ $project['iframe_maps'] }}" width="100%" height="450"
                     style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="row mt-5 mb-5">
                     <div class="col">
-                        <a href="{{ route('download-brochures', $project['id']) }}" class="btn btn-primary btn-lg btn-block-custom1"><i
+                        <a href="{{ route('download-brochures', $project['id_project']) }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-primary btn-lg btn-block-custom1"><i
                                 class="fa fa-download"></i> Unduh Brosur</a>
                     </div>
                     <div class="col">
-                        <a href="{{ $contact['contact_me'] }}" class="btn btn-secondary btn-lg btn-block-custom2"><i
+                        <a href="{{ $contact['contact_me'] }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-secondary btn-lg btn-block-custom2"><i
                                 class="fab fa-whatsapp"></i>
                             Hubungi Kami</a>
                     </div>
                     <div class="col">
-                        <a href="{{ $project['maps_url'] }}" class="btn btn-primary btn-lg btn-block-custom1"><i
+                        <a href="{{ $project['link_maps'] }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-primary btn-lg btn-block-custom1"><i
                                 class="fa fa-compass"></i> Maps</a>
                     </div>
                 </div>

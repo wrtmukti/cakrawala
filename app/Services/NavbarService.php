@@ -13,7 +13,8 @@ class NavbarService
     // Get Navbar
     public function getNavbar()
     {
-        $dropdown_list = $this->projectService->datasetProject();
+        $project_dropdown_list = $this->projectService->datasetProject();
+        // dd($project_dropdown_list);
         $nav_bar = [
             [
                 'name' => 'Beranda',
@@ -30,7 +31,7 @@ class NavbarService
                 'url' => 'project',
                 'route' => 'detail', // route name for dropdown
                 'dropdown' => 'true',
-                'dropdown_list' => $dropdown_list,
+                'dropdown_list' => $project_dropdown_list,
             ],
             [
                 'name' => 'Penghargaan',

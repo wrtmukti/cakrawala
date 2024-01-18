@@ -2,8 +2,12 @@
 
 namespace App\Services;
 
-use App\Services\ProjectService;
+use App\Models\CompanyBio;
+use App\Models\Collaboration;
+use App\Models\Award;
 use Illuminate\Http\Request;
+use App\Services\ProjectService;
+use Faker\Provider\ar_EG\Company;
 
 class ProfileService
 {
@@ -14,37 +18,45 @@ class ProfileService
         $this->projectService = $projectService;
     }
 
+
+    // Company Bio
+    public function companyBio()
+    {
+        $data = CompanyBio::first();
+        return $data;
+    }
+
     // Contact Me
     public function contactMe($id = '')
     {
         $title = "Kontak Kami";
         $description = "Selamat datang di halaman kontak kami, tempat untuk bertanya, berbagi, dan berkolaborasi. Kami siap menerima pesan Anda dan memberikan respon secepat mungkin!";
-        $name = "Cakrawala";
-        $whatsapp = "628989929804";
-        $telephone = "62813493769098";
-        $email = "cakrawalapratamamanunggalresmi@gmail.com";
-        $instagram = "";
-        $facebook = "";
-        $twitter = "";
-        $youtube = "";
+        $nickName = $this->companyBio()['company_nickname'] ?? '';
+        $whatsapp = $this->companyBio()['whatsapp'] ?? '';
+        $telephone = $this->companyBio()['phone'] ?? '';
+        $email = $this->companyBio()['email'] ?? '';
+        $instagram = $this->companyBio()['instagram'] ?? '';
+        $facebook = $this->companyBio()['facebook'] ?? '';
+        $twitter = $this->companyBio()['twitter'] ?? '';
+        $youtube = $this->companyBio()['youtube'] ?? '';
         $ad = '';
         $brochures = '';
         $contact_me = '';
-        $projectName['name'] = '';
+        $projectName['project_name'] = '';
         $projectName['type'] = '';
 
         if (!empty($id)) {
             $projectName = $this->projectService->detailProject($id);
-            $ad = "Hallo " . $name . ", Saya tertarik dengan penawaran yang anda berikan di dalam website, pada rumah " . $projectName['name'] . " dengan type " . $projectName['type'];
-            $brochures = "Hallo " . $name . ", penawaran yang anda berikan di dalam website merupakan penawaran yang menarik, dapatkah saya mendapatkan brosur dari rumah " . $projectName['name'] . " dengan type " . $projectName['type'];
-            $contact_me = "Hallo " . $name . ", saya tertarik dengan penawaran yang anda berikan di dalam website, pada rumah " . $projectName['name'] . " dengan type " . $projectName['type'] . ". Dapatkah saya mengobrol dengan anda melalui pesan ini ?";
+            $ad = "Hallo " . $nickName . ", Saya tertarik dengan penawaran yang anda berikan di dalam website, pada rumah " . $projectName['project_name'] . " dengan type " . $projectName['type'];
+            $brochures = "Hallo " . $nickName . ", penawaran yang anda berikan di dalam website merupakan penawaran yang menarik, dapatkah saya mendapatkan brosur dari rumah " . $projectName['project_name'] . " dengan type " . $projectName['type'];
+            $contact_me = "Hallo " . $nickName . ", saya tertarik dengan penawaran yang anda berikan di dalam website, pada rumah " . $projectName['project_name'] . " dengan type " . $projectName['type'] . ". Dapatkah saya mengobrol dengan anda melalui pesan ini ?";
             // --
             $ad = str_replace(' ', '%20', $ad);
             $brochures = str_replace(' ', '%20', $brochures);
             $contact_me = str_replace(' ', '%20', $contact_me);
         }
         
-        $more_info = "Hallo " . $name . ", saya ingin mendapatkan informasi lebih lanjut mengenai rumah yang anda tawarkan di dalam website";
+        $more_info = "Hallo " . $nickName . ", saya ingin mendapatkan informasi lebih lanjut mengenai rumah yang anda tawarkan di dalam website";
         // Link for anchor href
         $link = 'https://api.whatsapp.com/send?phone=' . $whatsapp . '&text=';
         // Format number for view button
@@ -71,7 +83,7 @@ class ProfileService
             'alamat' => $this->about()['address'],
             'description' => $this->about()['main_description'],
             'company_name' => $this->about()['company_name'],
-            'projectName' => $projectName['name'],
+            'projectName' => $projectName['project_name'],
             'projectType' => $projectName['type'],
         );
     }
@@ -79,20 +91,8 @@ class ProfileService
     // Award
     public function award()
     {
-        $award_picture = array(
-            'picture1' => [
-                'name' => 'Penghargaan PT. Cakrawala Pratama Manunggal',
-                'image' => 'award1.png'
-            ],
-            'picture2' => [
-                'name' => 'Sertifikat Silver',
-                'image' => 'sertif_silver.jpg'
-            ],
-            'picture3' => [
-                'name' => 'Sertifikat Gold',
-                'image' => 'sertif_gold.jpg'
-            ],
-        );
+        $award_picture = Award::all();
+        $award_picture_for_index = Award::where('id_award', '<>', 1)->get();
         $award_desc = array(
             'desc1' => 'PT. Cakrawala Pratama Manunggal telah mendapatkan sertifikat rating Silver dan Gold dari Bank BTN. Penghargaan tersebut diberikan kepada PT. Cakrawala Pratama Manunggal sebagai perusahaan yang berkontribusi atas penyediaan perumahan yang layak bagi masyarakat Indonesia.',
             'company' => 'PT. CAKRAWALA PRATAMA MANUNGGAL',
@@ -102,6 +102,7 @@ class ProfileService
         return array(
             'award_picture' => $award_picture,
             'award_desc' => $award_desc,
+            'award_for_index' => $award_picture_for_index,
         );
     }
 
@@ -112,53 +113,7 @@ class ProfileService
             'title' => 'KERJA SAMA INSTANSI',
             'desc' => 'PT. Cakrawala Pratama Manunggal juga bekerjasama dengan instansi-instansi setempat agar pembangunan setiap proyek berjalan dengan lancar, aman, dan cepat.',
         );
-        $activity = array(
-            [
-                'name' => 'PPJB Notaris',
-                'desc' => 'Proses PPJB Bersama Notaris',
-                'image' => '1.jpg'
-            ],
-            [
-                'name' => 'Survei BPN',
-                'desc' => 'Survei Bekerjasama Dengan BPN',
-                'image' => '2.jpg'
-            ],
-            [
-                'name' => 'PDAM Kabupaten Sukoharjo',
-                'desc' => 'Bekerjasama Dengan PDAM Kabupaten Sukoharjo',
-                'image' => '3.jpg'
-            ],
-            [
-                'name' => 'Musyawarah Warga',
-                'desc' => 'Musyawarah Dengan Warga Setempat',
-                'image' => '4.jpg'
-            ],
-            [
-                'name' => 'Bank BTN',
-                'desc' => 'Event Dengan Bank BTN',
-                'image' => '5.jpg'
-            ],
-            [
-                'name' => 'BTN dan TAPERA',
-                'desc' => 'Event Bersama BTN dan TAPERA',
-                'image' => '6.jpg'
-            ],
-            [
-                'name' => 'Akad Bank Masal',
-                'desc' => 'Akad Bank Masal PT. Cakrawala Pratama Manunggal',
-                'image' => '7.jpg'
-            ],
-            [
-                'name' => 'Kelurahan Setempat',
-                'desc' => 'Bekerja Sama Dengan Kelurahan Setempat',
-                'image' => '8.jpg'
-            ],
-            [
-                'name' => 'Doa Bersama',
-                'desc' => 'Prosesi Doa Bersama Pembukaan Lahan',
-                'image' => '9.jpg'
-            ],
-        );
+        $activity = Collaboration::all()->toArray();
         return array(
             'description' => $description,
             'activity' => $activity,
@@ -171,17 +126,17 @@ class ProfileService
         $data = array(
             'title' => 'TENTANG KAMI',
             'sub_title' => 'PT. CAKRAWALA PRATAMA MANUNGGAL adalah perusahaan yang bergerak dibidang kontraktor & developer.',
-            'company_name' => 'PT. Cakrawala Pratama Manunggal',
+            'company_name' => $this->companyBio()['company_name'] ?? '',
             'main_description' => 'Adalah perusahaan yang bergerak dibidang kontraktor & developer. Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
             'description' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak di bidang properti. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat Indonesia dengan menyediakan hunian yang layak dan berkualitas.',
             'description2' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak dibidang kontraktor & developer yang berdiri sejak tahun 2022. Perumahan Cakrawala Utama Residence 1 merupakan project pertama kami dan terus berkembang, hingga saat ini kami sudah mengembangkan lebih dari 500 unit rumah per tahun.',
             'description3' => 'Dengan mengusung konsep perumahan bersubsidi yang berkualitas prima dalam bangunan rumah,lingkungan hunian yang tertata,aman,nyaman,asri dan hijau, bernuansa feel like warm homey sehingga dapat meningkatkan kualitas hidup penghuninya. Dengan dukungan dari pihak perbankan dan instansi terkait, mempertegas komitmen kami untuk terus berkembang dan memberikan hunian terbaik untuk anda.',
             'since' => 'Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
-            'address' => 'Jl. Raya Solo - Purwodadi KM 12,5, Kec. Mojolaban, Kab. Sukoharjo, Jawa Tengah',
-            'maps_url' => 'https://maps.app.goo.gl/kn9XTGxFvDzYe2DUA',
-            'maps_iframe' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63282.313786208775!2d110.77761244860885!3d-7.5592070683129915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16627ad11ab1%3A0xe7fe4e0454bc3095!2sSurakarta%2C%20Kota%20Surakarta%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1705082053182!5m2!1sid!2sid',
-            'youtube_url' => 'https://youtu.be/kQaOKLKyYvY',
-            'youtube_thumbnail' => 'about2.png',
+            'address' => $this->companyBio()['address'] ?? '',
+            'maps_url' => $this->companyBio()['link_maps'] ?? '',
+            'maps_iframe' => $this->companyBio()['iframe_maps'] ?? '',
+            'youtube_url' => $this->companyBio()['youtube'] ?? '',
+            'youtube_thumbnail' => $this->companyBio()['youtube_thumbnail'] ?? '',
             'image' => 'about.png',
         );
 
