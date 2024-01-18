@@ -115,20 +115,20 @@
                         @foreach ($projects as $project)
                             <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
                                 <div class="portfolio-wrap">
-                                    <a href="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
+                                    <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
                                         data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                            src="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
+                                            src="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
                                             class="img-fluid" alt=""></a>
                                     <div class="portfolio-info">
                                         {{-- Name --}}
                                         <h5>
-                                            <a href="project/detail/{{ $project['id'] }}" target="__blank"
-                                                title="More Details"><b>{{ $project['name'] }}</b>
+                                            <a href="project/detail/{{ $project['id_project'] }}" target="__blank"
+                                                title="More Details"><b>{{ $project['project_name'] }}</b>
                                             </a>
                                         </h5>
 
                                         {{-- Location --}}
-                                        <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['location'] }}</p>
+                                        <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['address'] }}</p>
 
                                         <div class="row mt-4">
                                             {{-- Type --}}
@@ -154,20 +154,20 @@
                             @if ($index < 3)
                                 <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
                                     <div class="portfolio-wrap">
-                                        <a href="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
+                                        <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
                                             data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                                src="{{ asset('image/project/' . $project['image_poster'][0]['img']) }}"
+                                                src="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
                                                 class="img-fluid" alt=""></a>
                                         <div class="portfolio-info">
                                             {{-- Name --}}
                                             <h5>
-                                                <a href="project/detail/{{ $project['id'] }}" target="__blank"
-                                                    title="More Details"><b>{{ $project['name'] }}</b>
+                                                <a href="project/detail/{{ $project['id_project'] }}" target="__blank"
+                                                    title="More Details"><b>{{ $project['project_name'] }}</b>
                                                 </a>
                                             </h5>
 
                                             {{-- Location --}}
-                                            <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['location'] }}</p>
+                                            <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['address'] }}</p>
 
                                             <div class="row mt-4">
                                                 {{-- Type --}}
@@ -258,10 +258,10 @@
                 @foreach ($dataEven as $index => $activity)
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
-                            <img src="{{ asset('image/img/collaboration/' . $activity['image']) }} "
+                            <img src="{{ asset('image/img/collaboration/' . $activity['img_file']) }} "
                                 class="img-fluid" alt="Image Collaboration">
-                            <h4>{{ $activity['name'] }}</h4>
-                            <span>{{ $activity['desc'] }}</span>
+                            <h4>{{ $activity['title'] }}</h4>
+                            <span>{{ $activity['description'] }}</span>
                         </div>
                     </div>
                 @endforeach
@@ -279,10 +279,10 @@
                     @if ($index < 3)
                         <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="member">
-                                <img src="{{ asset('image/img/collaboration/' . $activity['image']) }} "
+                                <img src="{{ asset('image/img/collaboration/' . $activity['img_file']) }} "
                                     class="img-fluid" alt="Image Collaboration">
-                                <h4>{{ $activity['name'] }}</h4>
-                                <span>{{ $activity['desc'] }}</span>
+                                <h4>{{ $activity['title'] }}</h4>
+                                <span>{{ $activity['description'] }}</span>
                             </div>
                         </div>
                     @else
@@ -313,57 +313,16 @@
 
         <div class="row gy-4 justify-content-center">
 
-            <div class="col-xl-4 col-md-6">
-                <article>
-
-                    <div class="post-img p-3">
-                        <img src="{{ asset('image/img/award/1.jpg') }} " alt="" class="img-fluid mb-3">
-                    </div>
-
-                    {{-- <p class="post-category">Politics</p> --}}
-
-                    {{-- <h2 class="title">
-                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-              </h2> --}}
-
-                    {{-- <div class="d-flex align-items-center">
-                <img src="{{asset('vendor/impact/assets/img/blog/blog-author.jpg')}} " alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Maria Doe</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
-                  </p>
+            @foreach ($award as $item)
+                <div class="col-xl-4 col-md-6">
+                    <article>
+                        <div class="post-img p-3">
+                            <img src="{{ asset('image/award/' . $item['img_file']) }} " alt="Img Award"
+                                class="img-fluid mb-3">
+                        </div>
+                    </article>
                 </div>
-              </div> --}}
-
-                </article>
-            </div><!-- End post list item -->
-
-            <div class="col-xl-4 col-md-6">
-                <article>
-
-                    <div class="post-img p-3">
-                        <img src="{{ asset('image/img/award/2.jpg') }} " alt="" class="img-fluid">
-                    </div>
-
-                    {{-- <p class="post-category">Sports</p>
-
-              <h2 class="title">
-                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{{asset('vendor/impact/assets/img/blog/blog-author-2.jpg')}} " alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Allisa Mayer</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 5, 2022</time>
-                  </p>
-                </div>
-              </div> --}}
-
-                </article>
-            </div><!-- End post list item -->
+            @endforeach
 
         </div><!-- End recent posts list -->
 
@@ -533,7 +492,6 @@
                         </div>
                     </div><!-- End Info Item -->
                 </div>
-
             </div>
 
             <div class="col-lg-8">
@@ -568,330 +526,6 @@
 
     </div>
 </section><!-- End Contact Section -->
-
-{{-- <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      
-    </section><!-- End Clients Section --> --}}
-
-{{-- <!-- ======= Stats Counter Section ======= -->
-    <section id="stats-counter" class="stats-counter">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4 align-items-center">
-
-          <div class="col-lg-6">
-            <img src="{{asset('vendor/impact/assets/img/stats-img.svg')}}" alt="" class="img-fluid">
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="stats-item d-flex align-items-center">
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae diredo para mesta</p>
-            </div><!-- End Stats Item -->
-
-            <div class="stats-item d-flex align-items-center">
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-            </div><!-- End Stats Item -->
-
-            <div class="stats-item d-flex align-items-center">
-              <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-            </div><!-- End Stats Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Stats Counter Section --> --}}
-
-
-{{-- <!-- ======= Our Services Section ======= -->
-    <section id="services" class="services sections-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Our Services</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
-        </div>
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <h3>Velit Doloremque</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Our Services Section --> --}}
-
-{{-- <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Testimonials</h2>
-          <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>
-        </div>
-
-        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="{{asset('vendor/impact/assets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="{{asset('vendor/impact/assets/img/testimonials/testimonials-2.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="{{asset('vendor/impact/assets/img/testimonials/testimonials-3.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="{{asset('vendor/impact/assets/img/testimonials/testimonials-4.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>Matt Brandon</h3>
-                      <h4>Freelancer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <div class="d-flex align-items-center">
-                    <img src="{{asset('vendor/impact/assets/img/testimonials/testimonials-5.jpg')}}" class="testimonial-img flex-shrink-0" alt="">
-                    <div>
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section --> --}}
-
-
-{{-- <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing sections-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Pricing</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
-        </div>
-
-        <div class="row g-4 py-lg-5" data-aos="zoom-out" data-aos-delay="100">
-
-          <div class="col-lg-4">
-            <div class="pricing-item">
-              <h3>Free Plan</h3>
-              <div class="icon">
-                <i class="bi bi-box"></i>
-              </div>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
-                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4">
-            <div class="pricing-item featured">
-              <h3>Business Plan</h3>
-              <div class="icon">
-                <i class="bi bi-airplane"></i>
-              </div>
-
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>
-              </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-4">
-            <div class="pricing-item">
-              <h3>Developer Plan</h3>
-              <div class="icon">
-                <i class="bi bi-send"></i>
-              </div>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
-                <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
-                <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
-                <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>
-                <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>
-              </ul>
-              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-            </div>
-          </div><!-- End Pricing Item -->
-
-        </div>
-
-      </div>
-    </section><!-- End Pricing Section --> --}}
-
 
 {{-- Contact Me --}}
 @include('layouts/contact_me')

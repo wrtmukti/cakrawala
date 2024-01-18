@@ -29,5 +29,6 @@ Route::post('/specialOffer', [App\Http\Controllers\ProfileController::class, 'sp
 // Project
 Route::get('/project', [App\Http\Controllers\ProjectController::class, 'index'])->name('project');
 Route::get('/project/detail/{id}', [App\Http\Controllers\ProjectController::class, 'detail'])->name('detail');
+// Route::get('/download-brochures/{id}', [App\Http\Controllers\ProjectController::class, 'downloadBrochures'])->name('download-brochures');
 Route::get('/download-brochures/{id}', [App\Http\Controllers\ProjectController::class, 'downloadBrochures'])->name('download-brochures');
 

@@ -18,7 +18,7 @@
         <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
     </div>
     <div class="section-header">
-        <img src="{{ asset('image/award/' . $awards['image']) }}" class="img-fluid image-project"
+        <img src="{{ asset('image/award/' . $awards['img_file']) }}" class="img-fluid image-project"
             alt="Award Image">
     </div>
 </section>

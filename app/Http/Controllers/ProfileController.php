@@ -23,6 +23,9 @@ class ProfileController extends Controller
         
         $projects = $this->projectService->datasetProject();
         $about = $this->profileService->about();
+        $award = $this->profileService->award()['award_for_index'];
+
+        // Collaboration Calculate Even
         $collaboration = $this->profileService->collaboration();
         $totalElements = count($collaboration['activity']);
         $remainder = $totalElements % 4;
@@ -31,7 +34,9 @@ class ProfileController extends Controller
         if ($remainder != 0) {
             $dataEven = array_slice($collaboration['activity'], 0, $totalElements - $remainder);
         }
-        return view('index', compact('projects', 'about', 'collaboration', 'dataEven'));
+
+        // Send data to view
+        return view('index', compact('projects', 'about', 'collaboration', 'dataEven', 'award'));
     }
 
     public function about()
