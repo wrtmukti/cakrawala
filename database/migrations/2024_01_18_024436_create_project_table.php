@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id('id_project');
-            $table->string('project_name', 50);
-            $table->text('link_maps');
-            $table->text('iframe_maps');
-            $table->timestamps(); // Ini akan menambahkan created_at dan updated_at
+            $table->string('project_name', 50)->nullable();
+            $table->text('link_maps')->nullable();
+            $table->text('iframe_maps')->nullable();
+            $table->timestamps();
             $table->softDeletes(); // Ini akan menambahkan deleted_at
         });
     }

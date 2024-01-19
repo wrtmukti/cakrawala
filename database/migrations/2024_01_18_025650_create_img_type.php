@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('id_img_type');
             $table->unsignedBigInteger('id_project');
             $table->foreign('id_project')->references('id_project')->on('projects')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('img_file', 50);
-            $table->enum('carousel_active', ['Y', 'N'])->default('N');
+            $table->string('img_file', 50)->nullable();
+            $table->enum('carousel_active', ['Y', 'N'])->default('N')->nullable();
             $table->timestamps();
         });
     }

@@ -53,9 +53,6 @@
                             <h4 class="title"><a href="#recent-posts" class="stretched-link">Penghargaan</a></h4>
                         </div>
                     </div><!--End Icon Box -->
-
-
-
                 </div>
             </div>
         </div>

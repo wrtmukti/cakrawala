@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('projects', function(Blueprint $table) {
-            $table->text('project_desc')->after('iframe_maps');
+            $table->text('project_desc')->after('iframe_maps')->nullable();
         });
     }
 

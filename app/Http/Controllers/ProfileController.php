@@ -36,31 +36,31 @@ class ProfileController extends Controller
         }
 
         // Send data to view
-        return view('index', compact('projects', 'about', 'collaboration', 'dataEven', 'award'));
+        return parent::display('index', compact('projects', 'about', 'collaboration', 'dataEven', 'award'));
     }
 
     public function about()
     {
         $about = $this->profileService->about();
-        return view('profile.about', compact('about'));
+        return parent::display('profile.about', compact('about'));
     }
 
     public function award()
     {
         $award = $this->profileService->award();
-        return view('profile.award', compact('award'));
+        return parent::display('profile.award', compact('award'));
     }
 
     public function collaboration()
     {
         $collaboration = $this->profileService->collaboration();
-        return view('profile.collaboration', compact('collaboration'));
+        return parent::display('profile.collaboration', compact('collaboration'));
     }
 
 
     public function contact()
     {
-        return view('profile.contact');
+        return parent::display('profile.contact');
     }
 
     public function specialOffer(Request $request)

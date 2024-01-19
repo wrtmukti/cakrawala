@@ -15,19 +15,19 @@ return new class extends Migration
     {
         Schema::create('company_bio', function (Blueprint $table) {
             $table->id('id_company_bio');
-            $table->string('company_name', 50);
-            $table->string('company_nickname', 50);
-            $table->string('address', 100);
-            $table->string('link_maps', 200);
-            $table->text('iframe_maps');
-            $table->string('email', 50);
-            $table->string('phone', 50);
-            $table->string('whatsapp', 20);
-            $table->string('instagram', 50);
-            $table->string('facebook', 50);
-            $table->string('twitter', 50);
-            $table->string('youtube', 50);
-            $table->string('logo', 50);
+            $table->string('company_name', 50)->nullable();
+            $table->string('company_nickname', 50)->nullable();
+            $table->string('address', 100)->nullable();
+            $table->string('link_maps', 200)->nullable();
+            $table->text('iframe_maps')->nullable();
+            $table->string('email', 50)->nullable();
+            $table->string('phone', 50)->nullable();
+            $table->string('whatsapp', 20)->nullable();
+            $table->string('instagram', 50)->nullable();
+            $table->string('facebook', 50)->nullable();
+            $table->string('twitter', 50)->nullable();
+            $table->string('youtube', 50)->nullable();
+            $table->string('logo', 50)->nullable();
             $table->timestamps();
         });
     }
