@@ -11,6 +11,17 @@ class Projects extends Model
 
     protected $table = 'projects';
     protected $primaryKey = 'id_project';
+    protected $fillable = [
+        'project_name',
+        'type',
+        'price',
+        'address',
+        'link_maps',
+        'iframe_maps',
+        'project_desc',
+        'link_maps',
+        'iframe_maps',
+    ];
     
     // Relation to image in project
     public function imgPosters()

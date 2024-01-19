@@ -21,7 +21,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = $this->projectService->datasetProject();
-        return view('profile.projects.index', compact('projects'));
+        return parent::display('profile.projects.index', compact('projects'));
     }
 
     // Detail Project
@@ -29,7 +29,7 @@ class ProjectController extends Controller
     {
         $project = $this->projectService->detailProject($id);
         $contact = $this->profileService->contactMe($id);
-        return view('profile.projects.detail', compact('project', 'contact', 'id'));
+        return parent::display('profile.projects.detail', compact('project', 'contact', 'id'));
     }
 
     // Download Brochures

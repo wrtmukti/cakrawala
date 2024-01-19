@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Auth::routes();
+// Auth::routes();
 
 // Profile
 Route::get('/', [App\Http\Controllers\ProfileController::class, 'index'])->name('/');
@@ -29,6 +30,17 @@ Route::post('/specialOffer', [App\Http\Controllers\ProfileController::class, 'sp
 // Project
 Route::get('/project', [App\Http\Controllers\ProjectController::class, 'index'])->name('project');
 Route::get('/project/detail/{id}', [App\Http\Controllers\ProjectController::class, 'detail'])->name('detail');
-// Route::get('/download-brochures/{id}', [App\Http\Controllers\ProjectController::class, 'downloadBrochures'])->name('download-brochures');
 Route::get('/download-brochures/{id}', [App\Http\Controllers\ProjectController::class, 'downloadBrochures'])->name('download-brochures');
+// Admin
+Route::get('/admincakrawaladuaribuduapuluhempat', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('admincakrawaladuaribuduapuluhempat');
+Route::post('/loginaction', [App\Http\Controllers\Auth\LoginController::class, 'loginAction'])->name('loginaction');
+Route::get('/logoutaction', [App\Http\Controllers\Auth\LoginController::class, 'logoutAction'])->name('logoutaction')->middleware('auth');
+Route::get('/admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin-dashboard')->middleware('auth');
+Route::get('/admin/project', [App\Http\Controllers\Admin\ProjectController::class, 'index'])->name('admin-project')->middleware('auth');
+Route::get('/admin/project/create', [App\Http\Controllers\Admin\ProjectController::class, 'create'])->name('admin-project-create')->middleware('auth');
+Route::post('/admin/project/store', [App\Http\Controllers\Admin\ProjectController::class, 'store'])->name('admin-project-store')->middleware('auth');
+Route::get('/admin/project/edit/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('admin-project-edit')->middleware('auth');
+Route::post('/admin/project/update/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('admin-project-update')->middleware('auth');
+Route::get('/admin/project/delete/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'delete'])->name('admin-project-delete')->middleware('auth');
+
 

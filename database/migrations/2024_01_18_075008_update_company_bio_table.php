@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('company_bio', function(Blueprint $table) {
-            $table->string('youtube_thumbnail', 50)->after('youtube');
+            $table->string('youtube_thumbnail', 50)->after('youtube')->nullable();
         });
     }
 

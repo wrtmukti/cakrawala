@@ -29,17 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Untuk membagikan nav bar ke semua view
-        $navbarService = app(NavbarService::class);
-        $nav_bar = $navbarService->getNavbar();
-        View::share('nav_bar', $nav_bar);
-
-        // Contact Me
-        $contactService = app(ProfileService::class);
-        $contact_me = $contactService->contactMe();
-        // dd($contact_me);
-        View::share('contact', $contact_me);
-
         // CONFIG FOR CSS NGROK
         // if(config('app.env') === 'local') {
         //     URL::forceScheme('https');

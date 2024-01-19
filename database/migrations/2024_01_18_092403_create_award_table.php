@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('award', function (Blueprint $table) {
             $table->id('id_award');
-            $table->string('title', 100);
-            $table->text('img_file');
+            $table->string('title', 100)->nullable();
+            $table->text('img_file')->nullable();
             $table->timestamps();
         });
     }
