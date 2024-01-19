@@ -40,7 +40,7 @@ Route::get('/admin/project', [App\Http\Controllers\Admin\ProjectController::clas
 Route::get('/admin/project/create', [App\Http\Controllers\Admin\ProjectController::class, 'create'])->name('admin-project-create')->middleware('auth');
 Route::post('/admin/project/store', [App\Http\Controllers\Admin\ProjectController::class, 'store'])->name('admin-project-store')->middleware('auth');
 Route::get('/admin/project/edit/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('admin-project-edit')->middleware('auth');
-Route::post('/admin/project/update/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('admin-project-update')->middleware('auth');
+Route::post('/admin/project/update', [App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('admin-project-update')->middleware('auth');
 Route::get('/admin/project/delete/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'delete'])->name('admin-project-delete')->middleware('auth');
 
 

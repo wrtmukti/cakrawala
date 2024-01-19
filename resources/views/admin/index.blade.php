@@ -23,12 +23,12 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{ COUNT($project) }}</h3>
 
               <p>Proyek Cakrawala</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="ion ion-home"></i>
             </div>
             <a href="{{ route('admin-project') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>

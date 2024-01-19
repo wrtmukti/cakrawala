@@ -24,38 +24,40 @@
                     {{-- Website Scale --}}
                     <div class="row justify-content-center">
                         @foreach ($projects as $project)
-                            <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
-                                <div class="portfolio-wrap">
-                                    <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
-                                        data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                            src="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
-                                            class="img-fluid" alt=""></a>
-                                    <div class="portfolio-info">
-                                        {{-- Name --}}
-                                        <h5>
-                                            <a href="project/detail/{{ $project['id_project'] }}" target="__blank"
-                                                title="More Details"><b>{{ $project['project_name'] }}</b>
-                                            </a>
-                                        </h5>
+                            @if (isset($project->imgPosters[0]))
+                                <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
+                                    <div class="portfolio-wrap">
+                                        <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
+                                            data-gallery="portfolio-gallery-app" class="glightbox"><img
+                                                src="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
+                                                class="img-fluid" alt=""></a>
+                                        <div class="portfolio-info">
+                                            {{-- Name --}}
+                                            <h5>
+                                                <a href="project/detail/{{ $project['id_project'] }}" target="__blank"
+                                                    title="More Details"><b>{{ $project['project_name'] }}</b>
+                                                </a>
+                                            </h5>
 
-                                        {{-- Location --}}
-                                        <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['address'] }}</p>
+                                            {{-- Location --}}
+                                            <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['address'] }}</p>
 
-                                        <div class="row mt-4">
-                                            {{-- Type --}}
-                                            <div class="col-4 text-left">
-                                                <span class="btn btn-danger"><b> {{ $project['type'] }}</b></span>
-                                            </div>
-                                            {{-- Price --}}
-                                            <div class="col-8 d-flex justify-content-end align-items-center">
-                                                <h6 class="mt-2" style="color:#b85959">
-                                                    <b>{{ $project['price'] }}</b>/Bulan
-                                                </h6>
+                                            <div class="row mt-4">
+                                                {{-- Type --}}
+                                                <div class="col-4 text-left">
+                                                    <span class="btn btn-danger"><b> {{ $project['type'] }}</b></span>
+                                                </div>
+                                                {{-- Price --}}
+                                                <div class="col-8 d-flex justify-content-end align-items-center">
+                                                    <h6 class="mt-2" style="color:#b85959">
+                                                        <b>{{ $project['price'] }}</b>/Bulan
+                                                    </h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endforeach
                     </div>
 
