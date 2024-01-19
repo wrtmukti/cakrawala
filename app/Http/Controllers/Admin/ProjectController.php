@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ProjectService;
-use App\Models\Projects;
+use App\Services\Admin\CrudProjectService;
 
 class ProjectController extends Controller
 {
@@ -17,6 +17,7 @@ class ProjectController extends Controller
 
     // Constructor
     protected $projectService;
+
     public function __construct(ProjectService $projectService)
     {
         $this->projectService = $projectService;
@@ -46,31 +47,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            // Inisiasi Model
-            $project = new Projects;
-
-            // Data Insert
-            $params = [
-                'project_name' => $request->project_name,
-                'type' => $request->type,
-                'price' => $request->price,
-                'address' => $request->address,
-                'link_maps' => $request->link_maps,
-                'iframe_maps' => $request->iframe_maps,
-                'project_desc' => $request->project_desc,
-            ];
-            // dd($params);
-
-            // Eloquent Save data
-            $project->create($params);
-
-            // Redirect if success
-            return redirect()->route('admin-project')->with('success', 'Proyek berhasil disimpan.');
-        } catch (\Exception $e) {
-            // Redirect if failed
-            return redirect()->route('admin-project-create')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
+        return $this->projectService->storeProject($request);
     }
 
 
@@ -93,7 +70,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $result = $this->projectService->detailProject($id);
+        return parent::display('admin.project.edit', compact('result'));
     }
 
     /**
@@ -103,9 +81,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        return $this->projectService->updateProject($request);
     }
 
     /**

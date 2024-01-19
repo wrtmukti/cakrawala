@@ -1,4 +1,7 @@
 @extends('layouts.profile')
+@php
+    // dd($projects)
+@endphp
 @section('content')
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero">
@@ -110,50 +113,13 @@
                     {{-- Website Scale --}}
                     <div class="row justify-content-center website-show">
                         @foreach ($projects as $project)
-                            <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
-                                <div class="portfolio-wrap">
-                                    <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
-                                        data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                            src="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
-                                            class="img-fluid" alt=""></a>
-                                    <div class="portfolio-info">
-                                        {{-- Name --}}
-                                        <h5>
-                                            <a href="project/detail/{{ $project['id_project'] }}" target="__blank"
-                                                title="More Details"><b>{{ $project['project_name'] }}</b>
-                                            </a>
-                                        </h5>
-
-                                        {{-- Location --}}
-                                        <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['address'] }}</p>
-
-                                        <div class="row mt-4">
-                                            {{-- Type --}}
-                                            <div class="col-4 text-left">
-                                                <span class="btn btn-danger"><b> {{ $project['type'] }}</b></span>
-                                            </div>
-                                            {{-- Price --}}
-                                            <div class="col-8 d-flex justify-content-end align-items-center">
-                                                <h6 class="mt-2" style="color:#b85959">
-                                                    <b>{{ $project['price'] }}</b>/Bulan
-                                                </h6>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    {{-- Phone Scale --}}
-                    <div class="row justify-content-center phone-show">
-                        @foreach ($projects as $index => $project)
-                            @if ($index < 3)
+                            {{-- @dd($project->imgPosters[0]->img_file) --}}
+                            @if (isset($project->imgPosters[0]))
                                 <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
                                     <div class="portfolio-wrap">
-                                        <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
+                                        <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]->img_file) }}"
                                             data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                                src="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
+                                                src="{{ asset('image/project/poster/' . $project->imgPosters[0]->img_file) }}"
                                                 class="img-fluid" alt=""></a>
                                         <div class="portfolio-info">
                                             {{-- Name --}}
@@ -182,8 +148,51 @@
                                         </div>
                                     </div>
                                 </div>
-                            @else
-                            @break
+                            @endif
+                        @endforeach
+                    </div>
+                    {{-- Phone Scale --}}
+                    <div class="row justify-content-center phone-show">
+                        @foreach ($projects as $index => $project)
+                            @if (isset($project->imgPosters[0]))
+                                @if ($index < 3)
+                                    <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
+                                        <div class="portfolio-wrap">
+                                            <a href="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
+                                                data-gallery="portfolio-gallery-app" class="glightbox"><img
+                                                    src="{{ asset('image/project/poster/' . $project->imgPosters[0]['img_file']) }}"
+                                                    class="img-fluid" alt=""></a>
+                                            <div class="portfolio-info">
+                                                {{-- Name --}}
+                                                <h5>
+                                                    <a href="project/detail/{{ $project['id_project'] }}"
+                                                        target="__blank"
+                                                        title="More Details"><b>{{ $project['project_name'] }}</b>
+                                                    </a>
+                                                </h5>
+
+                                                {{-- Location --}}
+                                                <p><i class="bi bi-geo-alt text-danger"></i> {{ $project['address'] }}</p>
+
+                                                <div class="row mt-4">
+                                                    {{-- Type --}}
+                                                    <div class="col-4 text-left">
+                                                        <span class="btn btn-danger"><b> {{ $project['type'] }}</b></span>
+                                                    </div>
+                                                    {{-- Price --}}
+                                                    <div class="col-8 d-flex justify-content-end align-items-center">
+                                                        <h6 class="mt-2" style="color:#b85959">
+                                                            <b>{{ $project['price'] }}</b>/Bulan
+                                                        </h6>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                @else
+                                @break
+                            @endif
                         @endif
                     @endforeach
                     <div class="row mt-5 mb-5">
@@ -255,7 +264,7 @@
                 @foreach ($dataEven as $index => $activity)
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
-                            <img src="{{ asset('image/img/collaboration/' . $activity['img_file']) }} "
+                            <img src="{{ asset('image/collaboration/' . $activity['img_file']) }} "
                                 class="img-fluid" alt="Image Collaboration">
                             <h4>{{ $activity['title'] }}</h4>
                             <span>{{ $activity['description'] }}</span>
@@ -276,7 +285,7 @@
                     @if ($index < 3)
                         <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="member">
-                                <img src="{{ asset('image/img/collaboration/' . $activity['img_file']) }} "
+                                <img src="{{ asset('image/collaboration/' . $activity['img_file']) }} "
                                     class="img-fluid" alt="Image Collaboration">
                                 <h4>{{ $activity['title'] }}</h4>
                                 <span>{{ $activity['description'] }}</span>

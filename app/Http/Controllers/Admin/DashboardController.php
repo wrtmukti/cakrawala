@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ProfileService;
+use App\Services\ProjectService;
 
 class DashboardController extends Controller
 {
@@ -16,13 +17,16 @@ class DashboardController extends Controller
      */
     // Constructor
     protected $profileService;
-    public function __construct(ProfileService $profileService)
+    protected $projectService;
+    public function __construct(ProfileService $profileService, ProjectService $projectService)
     {
         $this->profileService = $profileService;
+        $this->projectService = $projectService;
     }
     public function index()
     {
-        return parent::display('admin/index');
+        $project = $this->projectService->datasetProject();
+        return parent::display('admin/index', compact('project'));
     }
 
     /**
