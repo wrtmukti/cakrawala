@@ -41,6 +41,8 @@ Route::get('/admin/project/create', [App\Http\Controllers\Admin\ProjectControlle
 Route::post('/admin/project/store', [App\Http\Controllers\Admin\ProjectController::class, 'store'])->name('admin-project-store')->middleware('auth');
 Route::get('/admin/project/edit/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('admin-project-edit')->middleware('auth');
 Route::post('/admin/project/update', [App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('admin-project-update')->middleware('auth');
+Route::get('/admin/project/imgedit/{id}/{page}', [App\Http\Controllers\Admin\ProjectController::class, 'imageEdit'])->name('admin-project-img-edit')->middleware('auth');
+Route::post('/admin/project/imgupdate', [App\Http\Controllers\Admin\ProjectController::class, 'imageUpdate'])->name('admin-project-img-update')->middleware('auth');
 Route::get('/admin/project/delete/{id}', [App\Http\Controllers\Admin\ProjectController::class, 'delete'])->name('admin-project-delete')->middleware('auth');
-
+Route::get('/admin/project/img-delete/{id}/{page}', [App\Http\Controllers\Admin\ProjectController::class, 'imageDelete'])->name('admin-project-img-delete')->middleware('auth');
 

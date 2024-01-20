@@ -33,7 +33,7 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                          {{-- Start Notification --}}
+                            {{-- Start Notification --}}
                             @if (session('error'))
                                 <div class="alert alert-danger">
                                     <b>Opps!</b> {{ session('error') }}
@@ -44,7 +44,7 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                          {{-- End Notification --}}
+                            {{-- End Notification --}}
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     @php
@@ -71,17 +71,20 @@
                                             <td class="text-center">{{ $data->type }}</td>
                                             <td class="text-center">Rp. {{ $data->price }}</td>
                                             <td class="text-center">
-                                        
-                                                <button type="button"
-                                                    class="btn btn-{{ count($project[$key]->imgPosters) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgPosters) }}</b></button><br>&nbsp;<br>
+
+                                                <a href="{{ route('admin-project-img-edit', ['id' => $data->id_project, 'page' => 'poster']) }}"
+                                                    class="btn btn-{{ count($project[$key]->imgPosters) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgPosters) }}</b>
+                                                </a>
                                             </td>
                                             <td class="text-center">
-                                                <button type="button"
-                                                    class="btn btn-{{ count($project[$key]->imgPosters) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgTypes) }}</b></button><br>&nbsp;<br>
+                                                <a href="{{ route('admin-project-img-edit', ['id' => $data->id_project, 'page' => 'type']) }}"
+                                                    class="btn btn-{{ count($project[$key]->imgTypes) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgTypes) }}</b>
+                                                </a>
                                             </td>
                                             <td class="text-center">
-                                                <button type="button"
-                                                    class="btn btn-{{ count($project[$key]->imgPosters) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgSiteplans) }}</b></button><br>&nbsp;<br>
+                                                <a href="{{ route('admin-project-img-edit', ['id' => $data->id_project, 'page' => 'siteplan']) }}"
+                                                    class="btn btn-{{ count($project[$key]->imgSiteplans) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgSiteplans) }}</b>
+                                                </a>
                                             </td>
                                             <td class="text-center">
                                                 <a href="{{ route('admin-project-edit', ['id' => $data->id_project]) }}"

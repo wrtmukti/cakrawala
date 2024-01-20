@@ -11,6 +11,11 @@ class ImgType extends Model
 
     protected $table = 'img_type';
     protected $primaryKey = 'id_img_type';
+    protected $fillable = [
+        'id_project',
+        'img_file',
+        'carousel_active',
+    ];
 
     // Relation to project master
     public function projects()
