@@ -11,6 +11,11 @@ class ImgSiteplan extends Model
 
     protected $table = 'img_siteplan';
     protected $primaryKey = 'id_img_siteplan';
+    protected $fillable = [
+        'id_project',
+        'img_file',
+        'carousel_active',
+    ];
 
     // Relation to project master
     public function projects()

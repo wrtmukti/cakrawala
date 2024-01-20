@@ -10,4 +10,8 @@ class Award extends Model
     use HasFactory;
     protected $table = 'award';
     protected $primaryKey = 'id_award';
+    protected $fillable = [
+        'title',
+        'img_file',
+    ];
 }

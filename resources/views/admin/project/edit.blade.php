@@ -37,7 +37,7 @@
                             </div>
                         @endif
                         {{-- End Notification --}}
-                        <input type="text" name="id_project" value="{{ $result['id_project'] }}" id="">
+                        <input type="hidden" name="id_project" value="{{ $result['id_project'] }}" id="">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Nama Proyek</label>
@@ -86,8 +86,5 @@
                 <!-- /.box -->
             </div>
         </section>
-
-
-
     </div>
 @endsection

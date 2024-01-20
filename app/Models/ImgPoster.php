@@ -11,6 +11,11 @@ class ImgPoster extends Model
 
     protected $table = 'img_poster';
     protected $primaryKey = 'id_img_poster';
+    protected $fillable = [
+        'id_project',
+        'img_file',
+        'carousel_active',
+    ];
 
     // Relation to project master
     public function projects()

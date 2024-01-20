@@ -23,77 +23,60 @@ class ProjectController extends Controller
         $this->projectService = $projectService;
     }
 
+    // List project
     public function index()
     {
         $project = $this->projectService->datasetProject();
         return parent::display('admin.project.index', compact('project'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // View Project Create
     public function create()
     {
         return parent::display('admin.project.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // Process project create
     public function store(Request $request)
     {
         return $this->projectService->storeProject($request);
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // View Project Edit
     public function edit($id)
     {
         $result = $this->projectService->detailProject($id);
         return parent::display('admin.project.edit', compact('result'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
+    // Process Project Update
     public function update(Request $request)
     {
         return $this->projectService->updateProject($request);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    // Process Project Delete
+    public function delete($id)
     {
         //
+    }
+    
+    // View Image Edit
+    public function imageEdit($id, $page)
+    {
+        $result = $this->projectService->detailProject($id);
+        return parent::display('admin.project.img_edit', compact('result', 'page'));
+    }
+
+    // Process Image Update
+    public function imageUpdate(Request $request)
+    {
+        return $this->projectService->imageUpdateProject($request);
+    }
+
+    // Process Image Delete
+    public function imageDelete($id_img, $page)
+    {
+        return $this->projectService->imageDeleteProject($id_img,$page);
     }
 }
