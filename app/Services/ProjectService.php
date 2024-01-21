@@ -9,6 +9,7 @@ use App\Models\ImgPoster;
 use App\Models\ImgType;
 use App\Models\ImgSiteplan;
 use Illuminate\Support\Facades\File;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class ProjectService
@@ -106,8 +107,49 @@ class ProjectService
     }
 
     // Delete Project Data
-    public function deleteProject($params)
+    public function deleteProject($id_project)
     {
+        // dd($id_project); 
+        try {
+            // --- Data Project
+            $dataProject = $this->datasetProject()->find($id_project);
+            // --- Data Images
+            $dataImgPoster = $dataProject->imgPosters;
+            $dataImgType = $dataProject->imgTypes;
+            $dataImgSiteplan = $dataProject->imgSiteplans;
+
+            // Redirect back if not finded data
+            if (!$dataProject) {
+                return redirect()->back()->with('error', 'Data tidak ditemukan.');
+            }
+
+            // --- Directory file in app project
+            $directoryPoster = public_path('image/project/poster/');
+            $directoryType = public_path('image/project/type/');
+            $directorySiteplan = public_path('image/project/siteplan/');
+
+            // --- Delete Process
+            // Img Poster Delete
+            foreach ($dataImgPoster as $imgData) {
+                File::delete($directoryPoster . $imgData->img_file);
+            }
+            // Img Type Delete
+            foreach ($dataImgType as $imgData) {
+                File::delete($directoryType . $imgData->img_file);
+            }
+            // Img Siteplan Delete
+            foreach ($dataImgSiteplan as $imgData) {
+                File::delete($directorySiteplan . $imgData->img_file);
+            }
+
+            // Delete data project in database
+            Projects::find($id_project)->delete();
+            // Redirect Success
+            return redirect()->route('admin-project')->with('success', 'Data project berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Redirect Error
+            return redirect()->route('admin-project')->with('error', 'Terjadi kesalahan delete project :' . $e->getMessage());
+        }
     }
 
     // Image Update Project
@@ -173,7 +215,7 @@ class ProjectService
                 return redirect()->back()->with('error', 'Data tidak ditemukan.');
             }
 
-            // Delete File in App Process
+            // Delete File in App Project
             $directorySave = public_path('image/project/' . $page . '/' . $data->img_file);
             File::delete($directorySave);
 
@@ -183,6 +225,7 @@ class ProjectService
             // Redirect Success
             return redirect()->route('admin-project-img-edit', ['id' => $data->id_project, 'page' => $page])->with('success', 'Data image ' . $page . ' berhasil dihapus.');
         } catch (\Exception $e) {
+            // Redirect Error
             return redirect()->route('admin-project-img-edit', ['id' => $data->id_project, 'page' => $page])->with('error', 'Terjadi kesalahan delete image ' . $page . ' : ' . $e->getMessage());
         }
     }

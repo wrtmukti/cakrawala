@@ -30,7 +30,7 @@ class CompanyBioSeeder extends Seeder
             'twitter' => '',
             'youtube' => 'https://youtu.be/kQaOKLKyYvY',
             'youtube_thumbnail' => 'about2.png',
-            'logo' => 'logo.png',
+            'logo' => 'logo_app.png',
         );
 
         // Insert to database

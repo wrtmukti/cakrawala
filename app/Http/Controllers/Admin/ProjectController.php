@@ -58,7 +58,7 @@ class ProjectController extends Controller
     // Process Project Delete
     public function delete($id)
     {
-        //
+        return $this->projectService->deleteProject($id);
     }
     
     // View Image Edit

@@ -11,4 +11,20 @@ class CompanyBio extends Model
 
     protected $table = 'company_bio';
     protected $primaryKey = 'id_company_bio';
+    protected $fillable = [
+        'company_name',
+        'company_nickname',
+        'address',
+        'link_maps',
+        'iframe_maps',
+        'email',
+        'phone',
+        'whatsapp',
+        'instagram',
+        'facebook',
+        'twitter',
+        'youtube',
+        'youtube_thumbnail',
+        'logo'
+    ];
 }

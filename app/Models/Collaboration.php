@@ -10,4 +10,9 @@ class Collaboration extends Model
     use HasFactory;
     protected $table = 'collaboration';
     protected $primaryKey = 'id_collaboration';
+    protected $fillable = [
+        'title',
+        'description',
+        'img_file',
+    ];
 }
