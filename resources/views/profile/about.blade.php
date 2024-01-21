@@ -21,13 +21,14 @@
                 <div class="col-lg-6">
                     <h4><b>{{ strtoupper($about['company_name']) }}</b></h4>
                     <p>{{ $about['since'] }}</p>
-                    <img src="{{ asset('image/img/home/' . $about['image']) }}" class="img-fluid rounded-4 mb-5"
-                        alt="" width="100%">
+                    {{-- <img src="{{ asset('image/img/home/' . $about['image']) }}" class="img-fluid rounded-4 mb-5"
+                        alt="" width="100%"> --}}
                     <p>{{ $about['description2'] }}</p>
+                    <p>{{ $about['description3'] }}</p>
                 </div>
                 <div class="col-lg-6">
                     <div class="content ps-0 ps-lg-5">
-                        <p>{{ $about['description3'] }}</p>
+                       
                         <div class="position-relative mt-4">
                             <img src="{{ asset('image/img/home/' . $about['youtube_thumbnail']) }}"
                                 class="img-fluid rounded-4" alt="" width="100%">
@@ -46,7 +47,7 @@
 
             <div class="section-header">
                 <h2>LOKASI KAMI</h2>
-                <h4>{{ $about['address'] }}</h4>
+                <p>{{ $about['address'] }}</p>
             </div>
             <iframe style="border-radius: 20px" src="{{ $about['maps_iframe'] }}" width="100%" height="450"
                 style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
