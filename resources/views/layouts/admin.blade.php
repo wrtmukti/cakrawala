@@ -80,7 +80,11 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <ul class="sidebar-menu" data-widget="tree">
+                    <li><a href="{{ route('admin-dashboard') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                     <li><a href="{{ route('admin-project') }}"><i class="fa fa-book"></i> <span>Proyek</span></a></li>
+                    <li><a href="{{ route('admin-collaboration') }}"><i class="fa fa-users"></i> <span>Kerja Sama</span></a></li>
+                    <li><a href="{{ route('admin-award') }}"><i class="fa fa-trophy"></i> <span>Penghargaan</span></a></li>
+                    <li><a href="{{ route('admin-companybio') }}"><i class="fa  fa-building"></i> <span>Biografi Perusahaan</span></a></li>
                     <li><a href="{{ route('logoutaction') }}"><i class="fa fa-user"></i> <span>Logout</span></a></li>
                 </ul>
             </section>

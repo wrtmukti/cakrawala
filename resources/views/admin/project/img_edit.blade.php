@@ -57,7 +57,6 @@
                             <div class="form-group">
                                 <label for="exampleInputFile">File {{ $page }}</label>
                                 <input type="file" name="img_file" id="exampleInputFile" accept="image/jpeg, image/jpg, image/png" required>
-
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -147,6 +146,7 @@
 @endsection
 
 <script>
+    // Confirm Delete
     function confirmDelete() {
         return confirm('Apakah Anda yakin ingin menghapus gambar ini?');
     }

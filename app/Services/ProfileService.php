@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
-use App\Models\CompanyBio;
-use App\Models\Collaboration;
 use App\Models\Award;
+use App\Models\CompanyBio;
 use Illuminate\Http\Request;
+use App\Models\Collaboration;
 use App\Services\ProjectService;
 use Faker\Provider\ar_EG\Company;
+use Illuminate\Support\Facades\File;
 
 class ProfileService
 {
@@ -24,6 +25,19 @@ class ProfileService
     {
         $data = CompanyBio::first();
         return $data;
+    }
+
+    // Company Bio Update
+    public function companyBioUpdate($params)
+    {
+        try {
+            // dd($params);
+            // Redirect Success
+            return redirect()->route('admin-companybio')->with('success', 'Data biografi berhasil diupdate.');
+        } catch (\Exception $e) {
+            // Redirect Error
+            return redirect()->route('admin-companybio')->with('error', 'Terjadi kesalahan update data biografi : ' . $e->getMessage());
+        }
     }
 
     // Contact Me
@@ -55,7 +69,7 @@ class ProfileService
             $brochures = str_replace(' ', '%20', $brochures);
             $contact_me = str_replace(' ', '%20', $contact_me);
         }
-        
+
         $more_info = "Hallo " . $nickName . ", saya ingin mendapatkan informasi lebih lanjut mengenai rumah yang anda tawarkan di dalam website";
         // Link for anchor href
         $link = 'https://api.whatsapp.com/send?phone=' . $whatsapp . '&text=';
@@ -106,6 +120,75 @@ class ProfileService
         );
     }
 
+    // Store Award
+    public function storeAward($params)
+    {
+        try {
+            // Define Model
+            $award = new Award;
+
+            /* Data insert image */
+
+            // Data Image
+            $file = $params->file('img_file');
+
+            // Validation file
+            $params->validate([
+                'img_file' => 'required|image|mimes:jpeg,png,jpg|max:20048',
+            ]);
+
+            // Saving Image to App
+            $currentDateTime = now()->format('d-m-Y H:i:s');
+            $fileName = "{$params['title']}_{$currentDateTime}.{$file->getClientOriginalExtension()}";
+            $directorySave = public_path('image/award/');
+            $file->move($directorySave, $fileName);
+
+            /* Saving to Database */
+
+            // Data Insert DB
+            $data = [
+                'title' => $params['title'],
+                'img_file' => $fileName,
+            ];
+
+            // Eloquent Save data
+            $award->create($data);
+
+            // Redirect if success
+            return redirect()->route('admin-award')->with('success', 'Penghargaan berhasil disimpan.');
+        } catch (\Exception $e) {
+            // Redirect if failed
+            return redirect()->route('admin-award-create')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+    }
+
+    // Delete Award
+    public function deleteAward($id_award)
+    {
+        try {
+            // Get data award
+            $award = Award::find($id_award);
+
+            // Redirect back if not finded data
+            if (!$award) {
+                return redirect()->back()->with('error', 'Data tidak ditemukan.');
+            }
+
+            // Delete image file in App
+            $directorySave = public_path('image/award/' . $award->img_file);
+            File::delete($directorySave);
+
+            // Delete data in Database
+            $award->delete();
+
+            // Redirect Success
+            return redirect()->route('admin-award')->with('success', 'Data Penghargaan berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Redirect Error
+            return redirect()->route('admin-award')->with('error', 'Terjadi kesalahan delete penghargaan : ' . $e->getMessage());
+        }
+    }
+
     // Collaboration
     public function collaboration()
     {
@@ -118,6 +201,77 @@ class ProfileService
             'description' => $description,
             'activity' => $activity,
         );
+    }
+
+    // Store Collaboration
+    public function storeCollaboration($params)
+    {
+        try {
+
+            // Define Model
+            $collaboration = new Collaboration;
+
+            /* Data insert image */
+
+            // Data Image
+            $file = $params->file('img_file');
+
+            // Validation file
+            $params->validate([
+                'img_file' => 'required|image|mimes:jpeg,png,jpg|max:20048',
+            ]);
+
+            // Saving Image to App
+            $currentDateTime = now()->format('d-m-Y H:i:s');
+            $fileName = "{$params['title']}_{$currentDateTime}.{$file->getClientOriginalExtension()}";
+            $directorySave = public_path('image/collaboration/');
+            $file->move($directorySave, $fileName);
+
+            /* Saving to Database */
+
+            // Data Insert DB
+            $data = [
+                'title' => $params['title'],
+                'description' => $params['description'],
+                'img_file' => $fileName,
+            ];
+
+            // Eloquent Save data
+            $collaboration->create($data);
+
+            // Redirect Success
+            return redirect()->route('admin-collaboration')->with('success', 'Data kerja sama berhasil ditambahkan.');
+        } catch (\Exception $e) {
+            // Redirect Error
+            return redirect()->route('admin-collaboration')->with('error', 'Terjadi kesalahan penambahan data kerja sama : ' . $e->getMessage());
+        }
+    }
+
+    // Delete Collaboration
+    public function deleteCollaboration($id_collaboration)
+    {
+        try {
+            // Get data collaboration
+            $collaboration = Collaboration::find($id_collaboration);
+
+            // Redirect back if not finded data
+            if (!$collaboration) {
+                return redirect()->back()->with('error', 'Data tidak ditemukan.');
+            }
+
+            // Delete image file in App
+            $directorySave = public_path('image/collaboration/' . $collaboration->img_file);
+            File::delete($directorySave);
+
+            // Delete data in Database
+            $collaboration->delete();
+
+            // Redirect Success
+            return redirect()->route('admin-collaboration')->with('success', 'Data kerja sama berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Redirect Error
+            return redirect()->route('admin-collaboration')->with('error', 'Terjadi kesalahan delete data kerja sama : ' . $e->getMessage());
+        }
     }
 
     // About
@@ -142,5 +296,4 @@ class ProfileService
 
         return $data;
     }
-
 }

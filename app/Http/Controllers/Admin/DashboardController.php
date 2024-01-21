@@ -26,7 +26,9 @@ class DashboardController extends Controller
     public function index()
     {
         $project = $this->projectService->datasetProject();
-        return parent::display('admin/index', compact('project'));
+        $award = $this->profileService->award();
+        $collaboration = $this->profileService->collaboration();
+        return parent::display('admin/index', compact('project', 'award', 'collaboration'));
     }
 
     /**

@@ -5,12 +5,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Proyek
+                Penghargaan
                 <small>Cakrawala</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
-                <li class="active">Project</li>
+                <li class="active">Penghargaan</li>
             </ol>
         </section>
 
@@ -22,11 +22,11 @@
                         <div class="box-header">
                             <div class="row">
                                 <div class="col-md-10">
-                                    <h3 class="box-title">Data Proyek Cakrawala</h3>
+                                    <h3 class="box-title">Data Penghargaan Cakrawala</h3>
                                 </div>
                                 <div class="col-md-2 text-right">
-                                    <a href="{{ route('admin-project-create') }}" class="btn btn-primary">
-                                        <i class="fa fa-plus"></i> Tambah Proyek Baru
+                                    <a href="{{ route('admin-award-create') }}" class="btn btn-primary">
+                                        <i class="fa fa-plus"></i> Tambah Penghargaan Baru
                                     </a>
                                 </div>
                             </div>
@@ -52,46 +52,23 @@
                                     @endphp
                                     <tr style="font-weight: bold">
                                         <td class="text-center">No.</td>
-                                        <td class="text-center">Nama Proyek</td>
-                                        <td class="text-center">Lokasi</td>
-                                        <td class="text-center">Tipe</td>
-                                        <td class="text-center">Angsuran/Bulan</td>
-                                        <td class="text-center">Jumlah Img Poster</td>
-                                        <td class="text-center">Jumlah Img Tipe</td>
-                                        <td class="text-center">Jumlah Img Siteplan</td>
+                                        <td class="text-center">Judul Penghargaan</td>
+                                        <td class="text-center">Tanggal Unggah</td>
+                                        <td class="text-center">Gambar Penghargaan</td>
                                         <td class="text-center">Aksi</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($project as $key => $data)
+                                    @foreach ($result['award_for_index'] as $key => $data)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $data->project_name }}</td>
-                                            <td>{{ $data->address }}</td>
-                                            <td class="text-center">{{ $data->type }}</td>
-                                            <td class="text-center">Rp. {{ $data->price }}</td>
+                                            <td>{{ $data->title }}</td>
+                                            <td>{{ $data->created_at }}</td>
                                             <td class="text-center">
-
-                                                <a href="{{ route('admin-project-img-edit', ['id' => $data->id_project, 'page' => 'poster']) }}"
-                                                    class="btn btn-{{ count($project[$key]->imgPosters) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgPosters) }}</b>
-                                                </a>
+                                                <img src="{{ asset('image/award/' . $data->img_file) }}" width="100" alt="Image Award">
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin-project-img-edit', ['id' => $data->id_project, 'page' => 'type']) }}"
-                                                    class="btn btn-{{ count($project[$key]->imgTypes) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgTypes) }}</b>
-                                                </a>
-                                            </td>
-                                            <td class="text-center">
-                                                <a href="{{ route('admin-project-img-edit', ['id' => $data->id_project, 'page' => 'siteplan']) }}"
-                                                    class="btn btn-{{ count($project[$key]->imgSiteplans) > 0 ? 'success' : 'danger' }}"><b>{{ count($project[$key]->imgSiteplans) }}</b>
-                                                </a>
-                                            </td>
-                                            <td class="text-center">
-                                                <a href="{{ route('admin-project-edit', ['id' => $data->id_project]) }}"
-                                                    class="btn btn-warning">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                                <a href="{{ route('admin-project-delete', ['id' => $data->id_project]) }}"
+                                                <a href="{{ route('admin-award-delete', ['id' => $data->id_award]) }}"
                                                     class="btn btn-danger" onclick="return confirmDelete()">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
@@ -116,6 +93,6 @@
 <script>
     // Confirm Delete
     function confirmDelete() {
-        return confirm('Apakah Anda yakin ingin menghapus gambar ini?');
+        return confirm('Apakah Anda yakin ingin menghapus penghargaan ini?');
     }
 </script>
