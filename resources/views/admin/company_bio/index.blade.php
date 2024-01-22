@@ -92,16 +92,19 @@
                                         <label for="">Instagram Perusahaan</label>
                                         <input type="text" value="{{ $result->instagram }}" name="instagram"
                                             class="form-control" id="" placeholder="Instagram Perusahaan">
+                                            <small class="text-danger">Silahkan diisi dengan username instagram, <b>contoh : cakrawala</b></small>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Facebook Perusahaan</label>
                                         <input type="text" value="{{ $result->facebook }}" name="facebook"
                                             class="form-control" id="" placeholder="Facebook Perusahaan">
+                                            <small class="text-danger">Silahkan diisi dengan username facebook, <b>contoh : cakrawala</b></small>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Twitter Perusahaan</label>
                                         <input type="text" value="{{ $result->twitter }}" name="twitter"
-                                            class="form-control" id="" placeholder="Twitter Perusahaan">
+                                            class="form-control" id="" placeholder="Username Twitter Perusahaan">
+                                            <small class="text-danger">Silahkan diisi dengan username twitter, <b>contoh : cakrawala</b></small>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Link Youtube Tentang Kami</label>

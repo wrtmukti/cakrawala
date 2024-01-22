@@ -19,7 +19,7 @@ class AwardSeeder extends Seeder
         $data = array(
             [
                 'title' => 'Penghargaan PT. Cakrawala Pratama Manunggal',
-                'img_file' => 'award1.png'
+                'img_file' => 'award1.jpg'
             ],
             [
                 'title' => 'Sertifikat Silver',

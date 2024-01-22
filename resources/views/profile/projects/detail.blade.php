@@ -1,10 +1,9 @@
 @extends('layouts.profile')
 @section('content')
     <main id="main">
-
         <section id="call-to-action" class="contact-custom2">
             <div class="container text-center" data-aos="zoom-out">
-                <h1><b>{{ $project['name'] }}</b></h1>
+                <h1><b>{{ $project['project_name'] }}</b></h1>
             </div>
         </section>
 
