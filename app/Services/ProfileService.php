@@ -31,7 +31,75 @@ class ProfileService
     public function companyBioUpdate($params)
     {
         try {
-            // dd($params);
+            // Define Model
+            $companyBio = CompanyBio::first();
+
+            // Data Insert
+            $data = [
+                'company_name' => $params['company_name'],
+                'company_nickname' => $params['company_nickname'],
+                'address' => $params['address'],
+                'phone' => $params['phone'],
+                'whatsapp' => $params['whatsapp'],
+                'email' => $params['email'],
+                'instagram' => $params['instagram'],
+                'facebook' => $params['facebook'],
+                'twitter' => $params['twitter'],
+                'youtube' => $params['youtube'],
+                'link_maps' => $params['link_maps'],
+                'iframe_maps' => $params['iframe_maps'],
+                'description' => $params['description'],
+            ];
+
+            /* Data insert image */
+            $yt_thumb = $params->file('youtube_thumbnail');
+            $logo_app = $params->file('logo');
+
+            // Validation file
+            $params->validate([
+                'youtube_thumbnail' => 'image|mimes:jpeg,png,jpg|max:20048',
+                'logo' => 'image|mimes:jpeg,png,jpg|max:20048',
+            ]);
+
+            // Directory Save
+            $directoryYtThumb = public_path('image/img/home/');
+            $directoryLogoApp = public_path('image/icon/');
+
+            // Check and update YouTube thumbnail if provided
+            if ($yt_thumb) {
+                // Name File
+                $yt_thumb_name = "about2.{$yt_thumb->getClientOriginalExtension()}";
+
+                // Check if file exists and delete the old file
+                if (file_exists($directoryYtThumb . $yt_thumb_name)) {
+                    unlink($directoryYtThumb . $yt_thumb_name);
+                }
+
+                // Move file
+                $yt_thumb->move($directoryYtThumb, $yt_thumb_name);
+                // Update model with new file name or URL
+                $data['youtube_thumbnail'] = $yt_thumb_name;
+            }
+
+            // Check and update logo if provided
+            if ($logo_app) {
+                // Name File
+                $logo_app_name = "logo_app.{$logo_app->getClientOriginalExtension()}";
+
+                // Check if file exists and delete the old file
+                if (file_exists($directoryLogoApp . $logo_app_name)) {
+                    unlink($directoryLogoApp . $logo_app_name);
+                }
+
+                // Move file
+                $logo_app->move($directoryLogoApp, $logo_app_name);
+                // Update model with new file name or URL
+                $data['logo'] = $logo_app_name;
+            }
+
+            // Eloquent Update data
+            $companyBio->update($data);
+
             // Redirect Success
             return redirect()->route('admin-companybio')->with('success', 'Data biografi berhasil diupdate.');
         } catch (\Exception $e) {
@@ -99,6 +167,7 @@ class ProfileService
             'company_name' => $this->about()['company_name'],
             'projectName' => $projectName['project_name'],
             'projectType' => $projectName['type'],
+            'logo' => $this->companyBio()['logo'],
         );
     }
 
@@ -193,7 +262,7 @@ class ProfileService
     public function collaboration()
     {
         $description = array(
-            'title' => 'KERJA SAMA INSTANSI',
+            'title' => 'Kerja Sama Instansi',
             'desc' => 'PT. Cakrawala Pratama Manunggal juga bekerjasama dengan instansi-instansi setempat agar pembangunan setiap proyek berjalan dengan lancar, aman, dan cepat.',
         );
         $activity = Collaboration::all()->toArray();
@@ -278,10 +347,10 @@ class ProfileService
     public function about()
     {
         $data = array(
-            'title' => 'TENTANG KAMI',
+            'title' => 'Tentang Kami',
             'sub_title' => 'PT. CAKRAWALA PRATAMA MANUNGGAL adalah perusahaan yang bergerak dibidang kontraktor & developer.',
             'company_name' => $this->companyBio()['company_name'] ?? '',
-            'main_description' => 'Adalah perusahaan yang bergerak dibidang kontraktor & developer. Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
+            'main_description' => 'adalah perusahaan yang bergerak dibidang kontraktor & developer. Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
             'description' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak di bidang properti. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat Indonesia dengan menyediakan hunian yang layak dan berkualitas.',
             'description2' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak dibidang kontraktor & developer yang berdiri sejak tahun 2022. Perumahan Cakrawala Utama Residence 1 merupakan project pertama kami dan terus berkembang, hingga saat ini kami sudah mengembangkan lebih dari 500 unit rumah per tahun.',
             'description3' => 'Dengan mengusung konsep perumahan bersubsidi yang berkualitas prima dalam bangunan rumah,lingkungan hunian yang tertata,aman,nyaman,asri dan hijau, bernuansa feel like warm homey sehingga dapat meningkatkan kualitas hidup penghuninya. Dengan dukungan dari pihak perbankan dan instansi terkait, mempertegas komitmen kami untuk terus berkembang dan memberikan hunian terbaik untuk anda.',
