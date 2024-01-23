@@ -33,18 +33,18 @@
     {{-- <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
 
     <!-- Vendor CSS Files -->
-    <link href="{{ asset('vendor/impact/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/impact/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/impact/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/impact/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/impact/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('vendor/impact/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('vendor/impact/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('vendor/impact/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('vendor/impact/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('vendor/impact/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('vendor/impact/assets/css/main.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('vendor/impact/assets/css/main.css') }}" rel="stylesheet">
 
     {{-- Carousel --}}
-    <script src="{{ asset('vendor/Impact/assets/js/jquery_3.2.1.min.js') }}"></script>
-    <script src="{{ asset('vendor/Impact/assets/js/bootstrap_bundle_4.3.1.min.js') }}"></script>
+    <script src="{{ secure_asset('vendor/Impact/assets/js/jquery_3.2.1.min.js') }}"></script>
+    <script src="{{ secure_asset('vendor/Impact/assets/js/bootstrap_bundle_4.3.1.min.js') }}"></script>
 
 
     <!-- =======================================================
