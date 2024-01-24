@@ -179,16 +179,16 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="row mt-5 mb-5">
                     <div class="col">
-                        <a href="{{ route('download-brochures', $project['id_project']) }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-primary btn-lg btn-block-custom1"><i
+                        <a href="{{ route('download-brochures', $project['id_project']) }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-primary btn-lg btn-block-custom1 margin_cust_1"><i
                                 class="fa fa-download"></i> Unduh Brosur</a>
                     </div>
                     <div class="col">
-                        <a href="{{ $contact['contact_me'] }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-secondary btn-lg btn-block-custom2"><i
+                        <a href="{{ $contact['contact_me'] }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-secondary btn-lg btn-block-custom2 margin_cust_1"><i
                                 class="fab fa-whatsapp"></i>
                             Hubungi Kami</a>
                     </div>
                     <div class="col">
-                        <a href="{{ $project['link_maps'] }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-primary btn-lg btn-block-custom1"><i
+                        <a href="{{ $project['link_maps'] }}" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);" class="btn btn-primary btn-lg btn-block-custom1 margin_cust_1"><i
                                 class="fa fa-compass"></i> Maps</a>
                     </div>
                 </div>
