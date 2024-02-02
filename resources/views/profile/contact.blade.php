@@ -3,8 +3,9 @@
     {{-- Hero --}}
     <section id="call-to-action" class="call-to-action">
         <div class="container text-center" data-aos="zoom-out">
-            <h3>{{ $contact['title'] }}</h3>
-            <p>{{ $contact['company_name'] . $contact['description'] }}</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </div>
     </section>
 

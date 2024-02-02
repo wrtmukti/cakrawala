@@ -3,8 +3,9 @@
     {{-- Hero --}}
     <section id="call-to-action" class="call-to-action">
         <div class="container text-center" data-aos="zoom-out">
-            <h3>{{ $collaboration['description']['title'] }}</h3>
-            <p>{{ $collaboration['description']['desc'] }}</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </div>
     </section>
 
