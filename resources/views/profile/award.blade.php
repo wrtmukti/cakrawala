@@ -1,21 +1,26 @@
 @extends('layouts.profile')
 @section('content')
 {{-- Hero --}}
-<section id="call-to-action" class="call-to-action">
+<section id="call-to-action-award" class="call-to-action-award">
     <div class="container text-center" data-aos="zoom-out">
-        <h3 style="font-size:3rem;">{{ $award['award_desc']['title'] }}</h3>
-        <h3>{{ $award['award_desc']['company'] }}</h3>
-        <p>{{ $award['award_desc']['desc1'] }}</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
     </div>
 </section>
 
 
 {{-- Penghargaan --}}
 @foreach ( $award['award_picture'] as $awards )    
-<section class="">
+<section class="" style="padding: 0 200px">
     <div class="section-header">
-        <h2>{{ $awards['name'] }}</h2>
-        <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+        <h2>{{ $awards['title'] }}</h2>
+        <p>{{ $award['award_desc']['desc1'] }}</p>
     </div>
     <div class="section-header">
         <img src="{{ asset('image/award/' . $awards['img_file']) }}" class="img-fluid image-project"

@@ -3,8 +3,9 @@
     {{-- Hero --}}
     <section id="call-to-action" class="call-to-action">
         <div class="container text-center" data-aos="zoom-out">
-            <h3>{{ $about['title'] }}</h3>
-            <p>{{ $about['description'] }}</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </div>
     </section>
 
@@ -14,7 +15,7 @@
 
             <div class="section-header">
                 <h2>{{ $about['title'] }}</h2>
-                <p>{{ $about['sub_title'] }}</p>
+                <p>{{ $about['description'] }}</p>
             </div>
 
             <div class="row gy-4">

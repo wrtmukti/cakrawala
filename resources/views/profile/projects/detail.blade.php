@@ -3,6 +3,8 @@
     <main id="main">
         <section id="call-to-action" class="contact-custom2">
             <div class="container text-center" data-aos="zoom-out">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
                 <h1><b>{{ $project['project_name'] }}</b></h1>
             </div>
         </section>
