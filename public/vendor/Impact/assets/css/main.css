@@ -19,13 +19,16 @@
 
 /* Colors */
 :root {
-  --color-default: #222222;
-  --color-primary: #191D88;
+  /* --color-default: #222222; */
+  /* --color-primary: #191D88; */
   /* --color-primary: #3468C0; */
   /* --color-primary: #0D0CB5; */
   /* --color-primary: #008374; */
-  --color-secondary: #C82121;
+  /* --color-secondary: #C82121; */
   /* --color-secondary: #f85a40; */
+  --color-default: #222222;
+  --color-primary: #0174BE;
+  --color-secondary: #C82121;
 }
 
 /* Smooth scroll behavior */
@@ -244,7 +247,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .topbar {
-  background: #C82121;
+  background:var(--color-primary);
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -3023,3 +3026,6 @@ width:100px;
 .carousel-item img{
   width:80%;
 }
+
+
+/* CAROUSEL */
