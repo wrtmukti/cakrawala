@@ -1,3 +1,14 @@
+## MOHON DIBACA
+HARUS MELAKUKAN DIBAWAH INI
+- Jika ada perubahan dilocal masing2 developer, wajib langsung push agar pengerjaan dapat terminimalisir dari *KONFLIK*, selain itu tujuannya agar setiap developer dapat mengetahui perubahan apa saja yang terjadi dalam project. 
+- UPDATE COMPOSER
+  ```composer update```
+- MIGRATE & SEED DATABASE
+  ```php artisan migrate:refresh --seed```
+- NPM INSTALL
+  ```npm run dev```
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
