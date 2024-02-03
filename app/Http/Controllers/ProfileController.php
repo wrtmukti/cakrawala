@@ -24,6 +24,7 @@ class ProfileController extends Controller
         $projects = $this->projectService->datasetProject();
         $about = $this->profileService->about();
         $award = $this->profileService->award()['award_for_index'];
+        $img_hero_transparent = $this->profileService->imgHeroTransparent();
 
         // Collaboration Calculate Even
         $collaboration = $this->profileService->collaboration();
@@ -36,7 +37,7 @@ class ProfileController extends Controller
         }
 
         // Send data to view
-        return parent::display('index', compact('projects', 'about', 'collaboration', 'dataEven', 'award'));
+        return parent::display('index', compact('projects', 'about', 'collaboration', 'dataEven', 'award', 'img_hero_transparent'));
     }
 
     public function about()

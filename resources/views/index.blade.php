@@ -5,22 +5,46 @@
 @section('content')
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero">
+        <div id="carouselExampleControls" class="carousel slide hero-carousel" data-ride="carousel" style="height: 100px">
+            <div class="carousel-inner">
+                @php
+                    $no = 0;
+                @endphp
+                @foreach ( $img_hero_transparent as $transparent )    
+                <div class="carousel-item @if($transparent->carousel_active == 'Y') active @endif">
+                    <img class="d-block w-100" src="{{ asset('image/project/bg_transparent/' . $transparent->img_file) }}" alt="Hero Cakrawala Slide {{ $no++ }}" >
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
         <div class="container position-relative">
             <div class="row gy-5" data-aos="fade-in">
-                <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-                    <h2>Welcome to <span>Cakrawala</span></h2>
+                <div
+                    class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+                    <h2>Selamat datang di, <span>{{ ucwords($contact['company_nickname']) }}</span></h2>
                     <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum
                         quaerat.</p>
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <a href="#about" class="btn-get-started">Get Started</a>
-                        <a href="https://youtu.be/kQaOKLKyYvY" class="glightbox btn-watch-video d-flex align-items-center"><i
+                        <a href="https://youtu.be/kQaOKLKyYvY"
+                            class="glightbox btn-watch-video d-flex align-items-center"><i
                                 class="bi bi-play-circle"></i><span>Watch Video</span></a>
                     </div>
                 </div>
-                <div class="col-lg-6 order-1 order-lg-2">
+                {{-- <div class="col-lg-6 order-1 order-lg-2">
                     <img src="{{ asset('vendor/impact/assets/img/hero-img.svg') }}" class="img-fluid" alt=""
                         data-aos="zoom-out" data-aos-delay="100">
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -116,7 +140,6 @@
                     {{-- Website Scale --}}
                     <div class="row justify-content-center website-show">
                         @foreach ($projects as $project)
-                            {{-- @dd($project->imgPosters[0]->img_file) --}}
                             @if (isset($project->imgPosters[0]))
                                 <div class="col-xl-4 col-md-6 portfolio-item filter-app mb-3">
                                     <div class="portfolio-wrap">
@@ -124,7 +147,7 @@
                                             data-gallery="portfolio-gallery-app" class="glightbox"><img
                                                 src="{{ asset('image/project/poster/' . $project->imgPosters[0]->img_file) }}"
                                                 class="img-fluid" alt=""></a>
-                                        <div class="portfolio-info" >
+                                        <div class="portfolio-info">
                                             {{-- Name --}}
                                             <h5>
                                                 <a href="project/detail/{{ $project['id_project'] }}" target="__blank"
