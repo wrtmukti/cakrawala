@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Collaboration;
 use App\Services\ProjectService;
 use Faker\Provider\ar_EG\Company;
+use App\Models\ImgHeroTransparent;
 use Illuminate\Support\Facades\File;
 
 class ProfileService
@@ -165,6 +166,7 @@ class ProfileService
             'alamat' => $this->about()['address'],
             'description' => $this->about()['main_description'],
             'company_name' => $this->about()['company_name'],
+            'company_nickname' => $this->about()['company_nickname'],
             'projectName' => $projectName['project_name'],
             'projectType' => $projectName['type'],
             'logo' => $this->companyBio()['logo'],
@@ -350,6 +352,7 @@ class ProfileService
             'title' => 'Tentang Kami',
             'sub_title' => 'PT. CAKRAWALA PRATAMA MANUNGGAL adalah perusahaan yang bergerak dibidang kontraktor & developer.',
             'company_name' => $this->companyBio()['company_name'] ?? '',
+            'company_nickname' => $this->companyBio()['company_nickname'] ?? '',
             'main_description' => 'adalah perusahaan yang bergerak dibidang kontraktor & developer. Berdiri pada tanggal 18 Oktober 2022 dan terus berkembang hingga saat ini.',
             'description' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak di bidang properti. Kami berkomitmen untuk memberikan pelayanan terbaik kepada masyarakat Indonesia dengan menyediakan hunian yang layak dan berkualitas.',
             'description2' => 'PT. Cakrawala Pratama Manunggal adalah perusahaan yang bergerak dibidang kontraktor & developer yang berdiri sejak tahun 2022. Perumahan Cakrawala Utama Residence 1 merupakan project pertama kami dan terus berkembang, hingga saat ini kami sudah mengembangkan lebih dari 500 unit rumah per tahun.',
@@ -364,5 +367,11 @@ class ProfileService
         );
 
         return $data;
+    }
+
+    // Img Profile Transparent
+    public function imgHeroTransparent()
+    {
+        return ImgHeroTransparent::all();
     }
 }

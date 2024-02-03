@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CompanyBioSeeder::class,
             CollaborationSeeder::class,
             AwardSeeder::class,
+            ImgHeroTransparentSeeder::class,
         ]);
     }
 }
